@@ -17,8 +17,6 @@ export default function Login(): JSX.Element {
           <Kakao/>
           <div className={styles['template__kakaoText']}>카카오 로그인</div>
         </a>
-        <span className={styles['template__text']}>계정이 없으신가요?</span>
-        <span className={styles['template__text']}>카카오톡으로 회원가입</span>
       </div>
     </div>
   );
