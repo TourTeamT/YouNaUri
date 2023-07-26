@@ -3,9 +3,6 @@ import { ReactComponent as Kakao } from 'assets/svg/auth/kakao.svg';
 import { KAKAO_REDIRECT_URL } from 'config/constants';
 
 export default function Login(): JSX.Element {
-  console.log("로그인페이지");
-  const code = new URL(window.location.href).searchParams.get("code");
-  console.log(code);
 
   return (
     <div className={styles.template}>
