@@ -36,7 +36,7 @@ const Cards: React.FC<Props> = ({ partnerData }) => {
     } else {
       setActive([...active, id]);
       setPartner([...active, id]);
-      //id가 배열에 없다면 그냥 배열에 넣기 
+      //id가 배열에 없다면 그냥 배열에 넣기
     }
   }
   useEffect(()=> {
