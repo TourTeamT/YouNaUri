@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
+import { ReactComponent as Calender } from 'assets/svg/plan/calendar_icon.svg'
 import 'react-datepicker/dist/react-datepicker.css';
-// import './DateRangeSelector.css'; // 컴포넌트 스타일을 위한 CSS 파일
+import styles from './datePicker.module.scss';
 
 const DateRangeSelector: React.FC = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -22,14 +23,17 @@ const DateRangeSelector: React.FC = () => {
   };
 
   return (
-    <div className="date-range-selector">
-      <div className="button-group">
-        <div>
-          <div onClick={() => setShowCalendars(true)}>{startDate ?  `${startDate}` : '시작일' }</div>
-          <div onClick={() => setShowCalendars(true)}>{endDate ? `${endDate}` : '종료일' }</div>
+    <div className={styles.template}>
+      <div className={styles.plan}>
+        <div className={styles.plan__calender} onClick={() => setShowCalendars(true)}>
+          <Calender className={styles.plan__icon} />
+          <input className={styles.plan__input} type="text" placeholder="어디서 출발하시나요?" />
+        </div>
+        <div className={styles.plan__calender} onClick={() => setShowCalendars(true)}>
+          <Calender className={styles.plan__icon} />
+          <input className={styles.plan__input} type="text" placeholder="어디서 출발하시나요?" />
         </div>
       </div>
-
       {showCalendars && (
         <div className="calendars">
           <DatePicker

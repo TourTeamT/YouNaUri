@@ -1,7 +1,20 @@
 import React from "react";
+import DateRangeSelector from "components/datePicker";
+import { ReactComponent as Search } from 'assets/svg/plan/search_icon.svg'
+import styles from './plan.module.scss';
 
 export default function Plan() {
   return (
-    <div>계획</div>
+    <div className={styles.container}>
+      <div className={styles.template}>
+        <span className={styles.template__subTitle}>출발지</span>
+        <div className={styles.place}>
+          <Search className={styles.place__icon} />
+          <input className={styles.place__input} type="text" placeholder="어디서 출발하시나요?" />
+        </div>
+        <span className={styles.template__subTitle}>일정</span>
+        <DateRangeSelector />
+      </div>
+    </div>
   )
 }
