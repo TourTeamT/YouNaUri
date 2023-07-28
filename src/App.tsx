@@ -7,6 +7,7 @@ import Plan from 'pages/user-select/plan';
 import Partner from 'pages/user-select/partner';
 import Login from 'pages/Auth/Login';
 import './App.css';
+import Header from 'pages/Header/index'
 
 function App() {
   return (
