@@ -1,51 +1,97 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import moment from 'moment';
-import DatePicker from 'react-datepicker';
-import { ReactComponent as Calender } from 'assets/svg/plan/calendar_icon.svg'
+import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
+import { ko } from 'date-fns/esm/locale';
+import { ReactComponent as Calendar } from 'assets/svg/plan/calendar_icon.svg';
+import { ReactComponent as Next } from 'assets/svg/plan/arrow_next_icon.svg';
+import { ReactComponent as Prev } from 'assets/svg/plan/arrow_prev_icon.svg';
+import 'moment/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
+import './datePicker.css';
 import styles from './datePicker.module.scss';
 
+type CustomHeaderProps = {
+  date: Date | null;
+};
+
+const customHeader = ({ date }: CustomHeaderProps) => {
+  return <div className={styles.header}>{moment(date).format('YYYY년 MM월')}</div>;
+};
+
 const DateRangeSelector: React.FC = () => {
-  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [showCalendars, setShowCalendars] = useState(false);
 
+  const datePickerRef = useRef<any>(null);
+  moment.locale('ko');
+
   const handleDateChange = (dates: [Date, Date]) => {
     const [start, end] = dates;
-    console.log(dates);
     setStartDate(start);
     setEndDate(end);
-    console.log(start);
-    console.log(end);
     if (start !== null && end !== null) {
       setShowCalendars(false);
     }
   };
 
+  const openDatePicker = () => {
+    datePickerRef.current?.setOpen(true);
+  };
+
+  const handlePreviousMonth = (date: Date | null) => {
+    if(date === null) return;
+    setStartDate(moment(date).subtract(1, 'month').toDate());
+  };
+  
+  const handleNextMonth = (date: Date | null) => {
+    if(date === null) return;
+    setStartDate(moment(date).add(1, 'month').toDate());
+  }
+
   return (
     <div className={styles.template}>
       <div className={styles.plan}>
         <div className={styles.plan__calender} onClick={() => setShowCalendars(true)}>
-          <Calender className={styles.plan__icon} />
-          <input className={styles.plan__input} type="text" placeholder="어디서 출발하시나요?" />
+          <Calendar className={styles.plan__icon} />
+          <input
+            className={styles.plan__input}
+            value={startDate ? moment(startDate).format('MMM Do') : ''}
+            type="text"
+            placeholder="출발일"
+          />
         </div>
         <div className={styles.plan__calender} onClick={() => setShowCalendars(true)}>
-          <Calender className={styles.plan__icon} />
-          <input className={styles.plan__input} type="text" placeholder="어디서 출발하시나요?" />
+          <Calendar className={styles.plan__icon} />
+          <input
+            className={styles.plan__input}
+            value={endDate ? moment(endDate).format('MMM Do') : ''}
+            type="text"
+            placeholder="도착일"
+          />
         </div>
       </div>
       {showCalendars && (
-        <div className="calendars">
+        <div className={styles.calender}>
+          <Prev onClick={() => handlePreviousMonth(startDate)} />
           <DatePicker
+            ref={datePickerRef}
             selected={startDate}
             onChange={handleDateChange}
+            minDate={new Date()}
             selectsRange
             startDate={startDate}
             endDate={endDate}
+            locale={ko}
             monthsShown={2}
+            dateFormat="YYYY년 MM월 DD일"
+            renderCustomHeader={customHeader}
             inline
-            calendarClassName="start-calendar"
+            popperClassName={styles.calender__popper}
+            wrapperClassName={styles.calender__wrapper}
+            calendarClassName={styles.calender__start}
           />
+          <Next onClick={() => handleNextMonth(startDate)} />
         </div>
       )}
     </div>
