@@ -1,0 +1,40 @@
+.bbb {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.card {
+  display: flex;
+  width: 250px;
+  height: 350px;
+  background-color: gainsboro;
+  margin: 20px 10px;
+  border-radius: 10px;
+  flex-direction: column-reverse;
+
+  &:hover {
+    border: solid 1.5px #ff7f23;
+    cursor: pointer;
+    box-shadow: 1px 1px 6px grey;
+  }
+
+  &__box {
+    display: flex;
+    background-color: white;
+    height: 100px;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}

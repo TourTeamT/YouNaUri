@@ -10,7 +10,7 @@ export default function TopNavigation(): JSX.Element {
       // name: auth ? '마이페이지' : '로그인',
       //icon: <SettingIcon />,
       // link: auth ? '/myPage' : '/login',
-      name: '로그인',
+      name: '채똥이님',
       link: '/login',
       //UI 잡히면 위의 코드로 교체
     },
