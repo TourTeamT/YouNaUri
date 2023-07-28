@@ -1,0 +1,46 @@
+.introduce {
+  display: flex;
+  flex-direction: column;
+
+  &__subTitle {
+    color: #FF7F1E;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    
+    /* ExSmall_12pt */
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+  }
+  &__title {
+    color: #1F1F1F;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+
+    /* H3_26pt */
+    font-family: Pretendard;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 16px 0 24px;
+  }
+
+  &__content {
+    color: #4B4B4B;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+
+    /* BodyRegular_16pt */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+  }
+}
