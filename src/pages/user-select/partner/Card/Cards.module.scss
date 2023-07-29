@@ -22,6 +22,12 @@
     box-shadow: 1px 1px 6px grey;
   }
 
+  &__active {
+    border: solid 1.5px #ff7f23;
+    cursor: pointer;
+    box-shadow: 1px 1px 6px grey;
+  }
+
   &__image {
     background-color: gainsboro;
     width: 210px;
