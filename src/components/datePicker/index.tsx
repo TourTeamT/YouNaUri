@@ -15,11 +15,16 @@ type CustomHeaderProps = {
 };
 
 const customHeader = ({ date }: CustomHeaderProps) => {
-  return <div className={styles.header}>{moment(date).format('YYYY년 MM월')}</div>;
+  const currentMonth = moment(date);
+  return (
+    <div className={styles.header}>
+      {currentMonth.format('YYYY년 MM월')}
+    </div>
+  );
 };
 
 const DateRangeSelector: React.FC = () => {
-  const [startDate, setStartDate] = useState<Date>(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [showCalendars, setShowCalendars] = useState(false);
 
@@ -76,7 +81,6 @@ const DateRangeSelector: React.FC = () => {
           <Prev onClick={() => handlePreviousMonth(startDate)} />
           <DatePicker
             ref={datePickerRef}
-            selected={startDate}
             onChange={handleDateChange}
             minDate={new Date()}
             selectsRange

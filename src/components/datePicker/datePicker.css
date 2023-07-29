@@ -3,6 +3,31 @@
   border: none;
 }
 
+.react_datepicker__day-name {
+  color: #000;
+  background-color: #333;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  width: 40px;
+  height: 40px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.react_datepicker__day {
+  color: #000 !important;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px !important;
+  font-style: normal;
+  width: 40px !important;
+  height: 40px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+}
+
 .react-datepicker__header{
   background: #FFF !important;
   border: none;
@@ -10,9 +35,89 @@
 
 .react-datepicker__current-month {
   background-color: #FFF;
-  color: #333;
 }
 
 .react-datepicker__month-container {
+  display: flex;
+  flex-direction: column;
   margin-right: 16px;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.react-datepicker__month {
+  color: #000 !important;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  /* BodyMedium_16pt */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px !important; /* 150% */
+}
+.react-datepicker__day--keyboard-selected {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+.react-datepicker__day--keyboard-selected:hover {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+
+.react-datepicker__day--selected {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+
+.react-datepicker__day--in-selecting-range {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+}
+
+.react-datepicker__day--selected:hover {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+.react-datepicker__day--in-range {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+
+/* 선택된 시작 날짜의 배경색 */
+.react-datepicker__day--selected {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+
+/* 선택된 끝 날짜의 배경색 */
+.react-datepicker__day--range-end {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+
+/* 선택된 시작 날짜와 끝 날짜 사이의 배경색 */
+.react-datepicker__day--in-selecting-range {
+  border-radius: 4px;
+  background-color: #FF7F1E !important;
+  color: #FFF;
+}
+
+/* 범위 선택 버튼 클릭 후 선택된 시작 날짜와 끝 날짜 사이의 배경색 */
+.react-datepicker__day--in-range:hover {
+  border-radius: 4px;
+  background-color: #FFA500;
+  color: #FFF;
 }

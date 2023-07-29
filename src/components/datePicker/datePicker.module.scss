@@ -33,15 +33,18 @@
 }
 
 .calender {
-  width: 752px;
-  height: 348px;
+  width: 720px;
+  height: 322px;
   margin-top: 12px;
+  padding: 16px;
   border-radius: 4px;
   border: 1px solid #E1E1E1;
   background: #FFF;
   box-shadow: 2px 3px 12px 1px rgba(0, 0, 0, 0.10);
   display: flex;
+  padding: 8px 16px;
   justify-content: space-between;
+  align-items: center;
   color: #000;
   text-align: center;
   leading-trim: both;
@@ -55,6 +58,7 @@
   &__start {
     background: #FFF;
     border: none;
+    display: flex;
   }
 
   &__popper {
@@ -64,10 +68,28 @@
   &__wrapper {
     background: red;
   }
+
+  &__next {
+    
+  }
+
+  &__prev {
+
+  }
 }
 
 .header {
   background: #FFF;
+  color: #000;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  height: 40px;
+  padding: 8px;
 }
 
 .react-datepicker__day-names{
