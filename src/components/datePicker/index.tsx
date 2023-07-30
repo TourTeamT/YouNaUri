@@ -27,7 +27,7 @@ const customHeader = ({ date, customHeaderCount }: CustomHeaderProps) => {
 };
 
 const DateRangeSelector: React.FC = () => {
-  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [showCalendars, setShowCalendars] = useState(false);
 
@@ -86,6 +86,7 @@ const DateRangeSelector: React.FC = () => {
             ref={datePickerRef}
             onChange={handleDateChange}
             minDate={new Date()}
+            selected={startDate}
             selectsRange
             startDate={startDate}
             endDate={endDate}

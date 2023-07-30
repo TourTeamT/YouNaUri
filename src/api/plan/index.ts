@@ -11,7 +11,7 @@ export const getAddress =  async (address: string) => {
 }
 
 export const getAddressPopup =  async (address: string) => {
-  const response = await localPopup.get(`v2/local/search/address.json`, {
+  const response = await localPopup.get(`addrLinkUrl.do`, {
     params: {
       query: address
     }
