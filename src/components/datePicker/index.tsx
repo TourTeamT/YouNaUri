@@ -12,13 +12,16 @@ import styles from './datePicker.module.scss';
 
 type CustomHeaderProps = {
   date: Date | null;
+  customHeaderCount: number;
 };
 
-const customHeader = ({ date }: CustomHeaderProps) => {
+const customHeader = ({ date, customHeaderCount }: CustomHeaderProps) => {
   const currentMonth = moment(date);
+  const nextMonth = moment(date).add(1, 'month');
+
   return (
     <div className={styles.header}>
-      {currentMonth.format('YYYY년 MM월')}
+      {customHeaderCount === 0 ? currentMonth.format('YYYY년 MM월') : nextMonth.format('YYYY년 MM월') }
     </div>
   );
 };
