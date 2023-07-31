@@ -25,7 +25,7 @@ export default function Place() {
       <div className={styles.template}>
         <div>
           <div className={styles['template__navigation']}>
-            <PlaceButton placesData={placesData} />
+            <PlaceButton placeData={placesData} />
           </div>
           <div>
             <Cards cityData={cityData}/>
