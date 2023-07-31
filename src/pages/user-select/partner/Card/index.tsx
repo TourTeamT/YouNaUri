@@ -27,8 +27,10 @@ const Cards: React.FC<Props> = ({ partnerData }) => {
   const handleClick = (id: number) => {
     if (active.includes(id)) {
       setActive(active.filter((activeId) => activeId !== id));
+      //id가 배열에 들어 있으면 필터링해서 안들어있는 애들로 배열을 다시 만듬
     } else {
       setActive([...active, id]);
+      //id가 배열에 없다면 그냥 배열에 넣기 
     }
   }
 
