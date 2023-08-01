@@ -22,7 +22,22 @@ type OutletProviderProps = {
 
 export default function UserSelect() {
   const location = useLocation();
-  const [userSelectData, setUserSelectData] = React.useState<[OutletProviderProps | null, (data: OutletProviderProps) => void]>();
+  const currentDate = new Date();
+  const endDate = new Date(currentDate);
+  endDate.setDate(currentDate.getDate() + 2);
+  const date = {
+    startDate: currentDate,
+    endDate: endDate,
+  };
+  const [userSelectData, setUserSelectData] = React.useState<OutletProviderProps | null>({
+    partner: null,
+    place: null,
+    date: {
+      startDate: date.startDate,
+      endDate: date.endDate,
+    },
+    time: null,
+  });
   const introText = location.pathname === "/user-select/partner"
   ? SelectIntroduceDialog.partner
   : location.pathname === "/user-select/place"
