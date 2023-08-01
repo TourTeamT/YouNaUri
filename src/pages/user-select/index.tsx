@@ -22,22 +22,6 @@ type OutletProviderProps = {
 
 export default function UserSelect() {
   const location = useLocation();
-  const currentDate = new Date();
-  const endDate = new Date(currentDate);
-  endDate.setDate(currentDate.getDate() + 2);
-  const date = {
-    startDate: currentDate,
-    endDate: endDate,
-  };
-  const [userSelectData, setUserSelectData] = React.useState<OutletProviderProps | null>({
-    partner: null,
-    place: null,
-    date: {
-      startDate: date.startDate,
-      endDate: date.endDate,
-    },
-    time: null,
-  });
   const introText = location.pathname === "/user-select/partner"
   ? SelectIntroduceDialog.partner
   : location.pathname === "/user-select/place"
@@ -55,7 +39,7 @@ export default function UserSelect() {
       />
       <SelectProgressBar /> 
       {/* 전역변수로 프로그래스바 조정 */}
-      <Outlet context={[userSelectData, setUserSelectData]} />
+      <Outlet context={[useUserSelectData, useUserSelectData]} />
     </div>
   )
 }
