@@ -1,14 +1,28 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { SelectIntroduceDialog } from "utils/selectIntroduceDialog";
-import { useOutletContext } from "react-router-dom";
 import SelectProgressBar from "components/SelectProgressBar";
 import SelectIntroduce from "components/SelectIntroduce";
 import styles from './user-select.module.scss';
 
+type OutletProviderProps = {
+  partner: string | null
+  place: string | null,
+  date: {
+    startDate: Date | null,
+    endDate: Date | null,
+  }
+  time: {
+    activeTime: number,
+    eating: boolean[],
+    eatingTime: number,
+  }[] | null
+} | null;
+
 export default function UserSelect() {
   const location = useLocation();
+  const [userSelectData, setUserSelectData] = React.useState<[OutletProviderProps | null, (data: OutletProviderProps) => void]>();
   const introText = location.pathname === "/user-select/partner"
   ? SelectIntroduceDialog.partner
   : location.pathname === "/user-select/place"
@@ -26,7 +40,11 @@ export default function UserSelect() {
       />
       <SelectProgressBar /> 
       {/* 전역변수로 프로그래스바 조정 */}
-      <Outlet />
+      <Outlet context={[userSelectData, setUserSelectData]} />
     </div>
   )
+}
+
+export function useUserSelectData() {
+  return useOutletContext<OutletProviderProps>();
 }
