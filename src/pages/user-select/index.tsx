@@ -2,13 +2,13 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { SelectIntroduceDialog } from "utils/selectIntroduceDialog";
+import { useOutletContext } from "react-router-dom";
 import SelectProgressBar from "components/SelectProgressBar";
 import SelectIntroduce from "components/SelectIntroduce";
 import styles from './user-select.module.scss';
 
 export default function UserSelect() {
   const location = useLocation();
-
   const introText = location.pathname === "/user-select/partner"
   ? SelectIntroduceDialog.partner
   : location.pathname === "/user-select/place"
