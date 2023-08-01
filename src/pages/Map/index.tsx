@@ -1,6 +1,12 @@
+import React from "react";
 import KakaoMap from "components/kakaoMap";
+import * as api from 'api';
 
-const map: React.FC = () => {
+const useMap = () => {
+  React.useEffect(()=> {
+    const data = api.plan.getLocation();
+    console.log(data);
+  })
   return (
     <div>
       <KakaoMap />
@@ -8,4 +14,4 @@ const map: React.FC = () => {
   );
 }
 
-export default map;
+export default useMap;
