@@ -166,10 +166,6 @@ export default function Time() {
           </div>
         ))}
       </div>
-      <div>
-        {/* Display the formState */}
-        <pre>{JSON.stringify(formState, null, 2)}</pre>
-      </div>
     </div>
   );
 }
