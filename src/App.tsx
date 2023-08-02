@@ -5,8 +5,9 @@ import UserSelect from 'pages/user-select';
 import Place from 'pages/user-select/place';
 import Plan from 'pages/user-select/plan';
 import Partner from 'pages/user-select/partner';
-import Map from 'pages/Map';
+import Time from 'pages/user-select/time';
 import Login from 'pages/Auth/Login';
+import Map from 'pages/Map';
 import Header from 'pages/Header';
 import './App.css';
 
@@ -21,10 +22,11 @@ function App() {
               <Route path='partner' element={<Partner />} />
               <Route path='place' element={<Place />} />
               <Route path='plan' element={<Plan />} />
+              <Route path='time' element={<Time />} />
             </Route>
             <Route path='/myPage' element={<MyPage/>} />
+            <Route path='/map' element={<Map />} />
           </Route>
-          <Route path='/map' element={<Map />} />
         </Routes>
       </div>
     </Router>
