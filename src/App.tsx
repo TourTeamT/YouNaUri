@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MyPage from 'pages/MyPage';
 import UserSelect from 'pages/user-select';
 import Place from 'pages/user-select/place';
 import Plan from 'pages/user-select/plan';

@@ -13,7 +13,6 @@ interface Props {
 
 const PlaceButton: React.FC<Props> = ({ placesData }) => {
 
-
   return (
     <div>
       <div className={styles.topNavigation}>
@@ -21,7 +20,6 @@ const PlaceButton: React.FC<Props> = ({ placesData }) => {
           placesData.map((data) => (
             <div key={data.code}>
                 <div className={styles.card}>{data.name}</div>
-
               </div>
             ))
         }

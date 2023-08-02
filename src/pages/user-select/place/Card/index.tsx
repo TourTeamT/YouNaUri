@@ -46,7 +46,6 @@ const Cards: React.FC<Props> = ({ cityData }) => {
   //       );
   //   }
 
-
   return (
     <div>
       <div className={styles.container}>
@@ -59,7 +58,6 @@ const Cards: React.FC<Props> = ({ cityData }) => {
                   {/* <div key={place.contentid}>{place.addr1}</div> */}
                 </div>
               </div>
-
             </div>
           ))
         }
