@@ -8,6 +8,7 @@ import Login from 'pages/Auth/Login';
 import Map from 'pages/Map';
 import './App.css';
 import Header from 'pages/Header/index'
+import MyPage from 'pages/MyPage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/dateChoice" element={<DateChoice />} />
+          {/* <Route path="/dateChoice" element={<DateChoice />} /> */}
           <Route path="/" element={<Header />}>
             <Route path='/user-select' element={<UserSelect />}>
               <Route path='partner' element={<Partner />} />
