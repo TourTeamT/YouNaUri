@@ -1,6 +1,8 @@
 import axios from "axios";
 import { instance, localPopup, location } from "api/entity";
+
 export const key = 'ZYow8W4H/DX9Brl4akTY7oRSr/pQptz2enUDK3/sO6VZVKa16n948PBd6K3ic6pQVmVL54WHi6GQY1lRdzjsig==';
+const popupKey = 'U01TX0FVVEgyMDIzMDczMDAwNTEzMDExMzk3NDI=';
 
 export const getAddress =  async (address: string) => {
   const response = await instance.get(`v2/local/search/address.json`, {
@@ -11,10 +13,11 @@ export const getAddress =  async (address: string) => {
   return response.data;
 }
 
-export const getAddressPopup =  async (address: string) => {
-  const response = await localPopup.get(`addrLinkUrl.do`, {
+export const getAddressPopup =  async (location: any) => {
+  const response = await localPopup.get(`addrCoordUrl.do`, {
     params: {
-      query: address
+      confirmKey: popupKey,
+      returnUrl: location,
     }
   }) 
   return response.data;
