@@ -10,7 +10,6 @@ import Login from 'pages/Auth/Login';
 import Header from 'pages/Header';
 import './App.css';
 
-
 function App() {
   return (
     <Router>
