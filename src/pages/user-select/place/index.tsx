@@ -18,6 +18,8 @@ export default function Place() {
   const onClickNext = () => {
     setPlanStep(true);
   }
+  //const [areaCode, setAreaCode] = useState(1);
+
   useEffect(() => {
   fetch(`http://apis.data.go.kr/B551011/KorWithService1/areaCode1?serviceKey=BwoLebLpztIG3bXaz2pSaRNQPd4K3UylwKCU1qf6TeB%2B%2FEj%2B4fs55oaRtcON2TnD2bEJHW9E8ocH9toev66qow%3D%3D&areaCode=1&numOfRows=25&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`)
     .then(response => response.json())
