@@ -27,15 +27,14 @@ function App() {
               <Route path='time' element={<Time />} />
             </Route>
             <Route path='/myPage' element={<MyPage />}>
-              <Route path='intend' element={<Intend />} />
               <Route path='past' element={<Past />} />
             </Route>
             <Route path='/map' element={<Map />} />
-          </Route>
+          </Route >
         </Routes>
-      </div>
-    </Router>
-  );
+        </div>
+     </Router>
+  )
 }
 
 export default App;

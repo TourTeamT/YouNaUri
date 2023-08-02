@@ -1,8 +1,13 @@
 import styles from './place.module.scss';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import placesData from 'Data/placeData.json'
 import PlaceButton from "./PlacesButton";
 import useProgressStore from 'utils/progressStore';
+=======
+import placesData from 'Data/placeData.json'
+import PlaceButton from "./PlacesButton";
+>>>>>>> 6b5393a (feat: api 연결)
 import Cards from "./Card";
 import { useEffect, useState } from 'react';
 
