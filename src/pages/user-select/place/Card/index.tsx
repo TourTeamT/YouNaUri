@@ -59,6 +59,7 @@ const Cards: React.FC<Props> = ({ cityData }) => {
                   {/* <div key={place.contentid}>{place.addr1}</div> */}
                 </div>
               </div>
+
             </div>
           ))
         }

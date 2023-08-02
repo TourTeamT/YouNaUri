@@ -15,11 +15,13 @@
 .card {
   display: flex;
   width: 272px;
+
   height: 350px;
   background-color: gainsboro;
   margin: 20px 10px;
   border-radius: 10px;
   flex-direction: column-reverse;
+
   &:hover {
     border: solid 1.5px #ff7f23;
     cursor: pointer;
@@ -38,6 +40,7 @@
   &__box {
     display: flex;
     flex-direction: column;
+
     background-color: white;
     height: 100px;
     font-size: 16px;

@@ -5,6 +5,7 @@ import Cards from "./Card";
 import { useEffect, useState } from 'react';
 
 
+
 export default function Place() {
   const [cityData, setCityData] = useState<any | undefined>();
   //const [areaCode, setAreaCode] = useState(1);
@@ -29,6 +30,7 @@ export default function Place() {
           </div>
           <div>
             <Cards cityData={cityData}/>
+
           </div>
         </div>
         <div className={styles['template__buttons']}>
