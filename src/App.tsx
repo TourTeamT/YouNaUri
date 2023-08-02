@@ -32,7 +32,6 @@ function App() {
             </Route>
             <Route path='/map' element={<Map />} />
           </Route>
-          <Route path='/map' element={<Map />} />
         </Routes>
       </div>
     </Router>
