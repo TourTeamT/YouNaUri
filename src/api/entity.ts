@@ -13,7 +13,7 @@ export const localPopup = axios.create({
   baseURL: 'https://business.juso.go.kr/addrlink/'
 })
 
-localPopup.defaults.headers.common['Authorization'] = 'devU01TX0FVVEgyMDIzMDczMDAwMzE0MDExMzk3NDE='
+// localPopup.defaults.headers.common['Authorization'] = 'U01TX0FVVEgyMDIzMDczMDAwNTEzMDExMzk3NDI='
 
 export const location = axios.create({
   baseURL: 'http://apis.data.go.kr/B551011'
