@@ -1,0 +1,41 @@
+.body {
+  background: #FAFAFA;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+.template {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  &__buttons {
+    margin: 50px;
+  }
+
+  &__button {
+    background-color: #D9D9D9;
+    width: 80px;
+    height: 40px;
+    border:  none;
+    margin: 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #F5F5F5;
+      border: 1.5px solid #ff7f23;
+      color: #ff7f23;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+}

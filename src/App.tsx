@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainPage from 'pages/MainPage';
+import MyPage from 'pages/MyPage';
 import UserSelect from 'pages/user-select';
 import Place from 'pages/user-select/place';
 import Plan from 'pages/user-select/plan';
@@ -17,11 +17,13 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/dateChoice" element={<DateChoice />} />
-          <Route path="/" element={<MainPage />} />
-          <Route path='/user-select' element={<UserSelect />}>
-            <Route path='partner' element={<Partner />} />
-            <Route path='place' element={<Place />} />
-            <Route path='plan' element={<Plan />} />
+          <Route path="/" element={<Header />}>
+            <Route path='/user-select' element={<UserSelect />}>
+              <Route path='partner' element={<Partner />} />
+              <Route path='place' element={<Place />} />
+              <Route path='plan' element={<Plan />} />
+            </Route>
+            <Route path='/myPage' element={<MyPage/>} />
           </Route>
         </Routes>
       </div>
