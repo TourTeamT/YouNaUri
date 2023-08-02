@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useUserSelectData } from "pages/user-select";
+import { ReactComponent as Check } from 'assets/svg/plan/check.svg'
+import Next from "components/button/next";
+import Back from "components/button/back";
+import cn from "utils/classnames";
+import styles from './time.module.scss';
 
 const formatDateToMMDD = (date: Date): string => {
   const month = date.getMonth() + 1;
@@ -15,27 +20,16 @@ const formatTime = (date: Date): string => {
 };
 
 const TimeInput: React.FC<{
-  value: string;
-  onChange: (newValue: string) => void;
-}> = ({ value, onChange }) => {
-  const [hours, setHours] = useState("00");
-  const [minutes, setMinutes] = useState("00");
-
-  const handleChange = () => {
-    const timeString = `${hours}:${minutes}`;
-    onChange(timeString);
-  };
-
+  hours: string;
+  minutes: string;
+  onChange: (hours: string, minutes: string) => void;
+}> = ({ hours, minutes, onChange }) => {
   const handleHourChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-    setHours(e.target.value);
-    handleChange();
+    onChange(e.target.value, minutes);
   };
 
   const handleMinuteChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-    setMinutes(e.target.value);
-    handleChange();
+    onChange(hours, e.target.value);
   };
 
   const hoursOptions = [];
@@ -56,11 +50,11 @@ const TimeInput: React.FC<{
 
   return (
     <div>
-      <select value={hours} onChange={handleHourChange}>
+      <select className={styles.select} value={hours} onChange={handleHourChange}>
         {hoursOptions}
       </select>
       :
-      <select value={minutes} onChange={handleMinuteChange}>
+      <select className={styles.select} value={minutes} onChange={handleMinuteChange}>
         {minutesOptions}
       </select>
     </div>
@@ -77,7 +71,7 @@ export default function Time() {
 
   const { partner, place, date, time } = userSelectData || {};
   const [formState, setFormState] = React.useState<any[]>([]);
-  const [selectedDayIndex, setSelectedDayIndex] = React.useState<number | null>(null); // Keep track of the selected day index
+  const [selectedDayIndex, setSelectedDayIndex] = React.useState<number | null>(0); // Keep track of the selected day index
 
   const getDatesBetween = (): string[] => {
     if (date && date.startDate && date.endDate) {
@@ -89,78 +83,127 @@ export default function Time() {
         dates.push(formatDateToMMDD(currentDate));
         currentDate.setDate(currentDate.getDate() + 1);
       }
-
       return dates;
     }
     return [];
   };
 
   const datesBetween: string[] = getDatesBetween();
+  React.useEffect(() => {
+    const initialFormState = datesBetween.map(() => ({}));
+    setFormState(initialFormState);
+  }, []);
+
   const handleFormChange = (index: number, field: string, value: any) => {
+    setFormState((prevState) => {
+      const updatedForm = [...prevState];
+      if (!updatedForm[index]) {
+        updatedForm[index] = {};
+      }
+      updatedForm[index][field] = value;
+      return updatedForm;
+    });
+  };
+
+  const handleDayClick = (index: number) => {
+    setSelectedDayIndex(index === selectedDayIndex ? null : index);
+  };
+
+  const toggleMealStatus = (index: number, mealType: string) => {
     const updatedForm = [...formState];
     if (!updatedForm[index]) {
       updatedForm[index] = {};
     }
-    updatedForm[index][field] = value;
+    updatedForm[index][mealType] = !updatedForm[index][mealType];
     setFormState(updatedForm);
   };
 
-  const handleDayClick = (index: number) => {
-    setSelectedDayIndex(index === selectedDayIndex ? null : index); // Toggle the selected day index
-  };
-
-  // Rest of your Time component code...
   return (
-    <div>
+    <div className={styles.template}>
       <div>
         {datesBetween.map((item: string, index: number) => (
-          <div key={item}>
-            <div>
+          <div key={item} className={styles.container}>
+            <div className={cn({
+                      [styles.date]: true,
+                      [styles['date--select']]: selectedDayIndex === index,
+                    })}>
               <span onClick={() => handleDayClick(index)}>{index + 1}일차</span>
             </div>
             <div>
             {selectedDayIndex === index && (
-              <div>
-                {/* Example form inputs */}
-               <div>
-                <div>
-                  <span>Start Time:</span>
-                  <TimeInput
-                    value={formState[index]?.startTime || ""}
-                    onChange={(value) => handleFormChange(index, "startTime", value)}
-                  />
-                </div>
-                <div>
-                  <span>End Time:</span>
-                  <TimeInput
-                    value={formState[index]?.endTime || ""}
-                    onChange={(value) => handleFormChange(index, "endTime", value)}
-                  />
-                </div>
-               </div>
-                <input
-                  type="checkbox"
-                  checked={formState[index]?.isBreakfast || false}
-                  onChange={(e) => handleFormChange(index, "isBreakfast", e.target.checked)}
-                />
-                <input
-                  type="checkbox"
-                  checked={formState[index]?.isLunch || false}
-                  onChange={(e) => handleFormChange(index, "isLunch", e.target.checked)}
-                />
-                <input
-                  type="checkbox"
-                  checked={formState[index]?.isDinner || false}
-                  onChange={(e) => handleFormChange(index, "isDinner", e.target.checked)}
-                />
-                <div>
-                  <span>Meal Time:</span>
-                  <TimeInput
-                    value={formState[index]?.mealTime || ""}
-                    onChange={(value) => handleFormChange(index, "mealTime", value)}
-                  />
-                </div>
+              <div className={styles.container__content}>
+                <div className={styles.day}>
+                <div className={styles.day__date}>{ datesBetween[index] }</div>
+                <div className={styles.day__count}>{index + 1}일차</div>
               </div>
+              <div className={styles.content}>
+                <div className={styles.title}>활동 시간</div>
+                <div className={styles.description}>상황에 따라 약간의 오차가 발생할 수 있습니다.</div>
+                <div className={styles.active}>
+                  <div className={styles.time}>
+                    <TimeInput
+                      hours={formState[index]?.startTime?.split(':')[0] || "00"}
+                      minutes={formState[index]?.startTime?.split(':')[1] || "00"}
+                      onChange={(hours, minutes) => handleFormChange(index, "startTime", `${hours}:${minutes}`)}
+                    />
+                  </div>
+                   ~
+                  <div className={styles.time}>
+                    <TimeInput
+                      hours={formState[index]?.endTime?.split(':')[0] || "00"}
+                      minutes={formState[index]?.endTime?.split(':')[1] || "00"}
+                      onChange={(hours, minutes) => handleFormChange(index, "endTime", `${hours}:${minutes}`)}
+                    />
+                  </div>
+                </div>
+                <div className={styles.title}>식사여부</div>
+                <div className={styles.description}>식사가 예상되는 시간을 전부 선택해 주세요.</div>
+                <div className={styles.meal}>
+                  <div
+                    className={cn({
+                      [styles.mealTime]: true,
+                      [styles['mealTime--select']]: formState[index]?.isBreakfast,
+                    })}
+                    onClick={() => toggleMealStatus(index, "isBreakfast")}>
+                    아침
+                  </div>
+                  <div
+                    className={cn({
+                      [styles.mealTime]: true,
+                      [styles['mealTime--select']]: formState[index]?.isLunch,
+                    })}
+                    onClick={() => toggleMealStatus(index, "isLunch")}>
+                    점심
+                  </div>
+                  <div
+                    className={cn({
+                      [styles.mealTime]: true,
+                      [styles['mealTime--select']]: formState[index]?.isDinner,
+                    })} 
+                    onClick={() => toggleMealStatus(index, "isDinner")}>
+                    저녁
+                  </div>
+                </div>
+                <div className={styles.title}>식사 소요시간</div>
+                <div className={styles.description}>각 식사 별 예상 소요 시간을 선택 해주세요.</div>
+                <div className={styles.mealSpend}>
+                  <TimeInput
+                    hours={formState[index]?.mealTime?.split(':')[0] || "00"}
+                    minutes={formState[index]?.mealTime?.split(':')[1] || "00"}
+                    onChange={(hours, minutes) => handleFormChange(index, "mealTime", `${hours}:${minutes}`)}
+                  />
+                </div>
+                  <div className={styles.button}>
+                    { index !== 0 && <Back setState={() => handleDayClick(index - 1)}/> }
+                    { index !== datesBetween.length ? (
+                        <Next setState={() => handleDayClick(index + 1)} /> 
+                      ) : (
+                        <Next setState={() => console.log('보내기')} />
+                      )
+                    }
+                  </div>
+              </div>
+            </div>
             )}
             </div>
           </div>

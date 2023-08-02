@@ -16,7 +16,6 @@ export default function Plan() {
   const [searchResults, setSearchResults] = React.useState<any[]>([]);
 
   const handleResultItemClick = (result: any) => {
-    // 검색 결과 중 하나를 선택하면 해당 결과의 값을 local로 설정
     setLocal(result.address_name);
     setLocationInfo({
       location: result.address_name,
