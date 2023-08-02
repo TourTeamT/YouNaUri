@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("/public/Fonts/Pretendard-Regular.subset.woff2") format("woff2");
+}
+
 .App {
   text-align: center;
+  font-family: "Pretendard", sans-serif;
 }
 
 .App-logo {
