@@ -59,6 +59,26 @@ export default function Plan() {
     setSearchResults([]);
   }, [locationInfo]);
 
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (local === '') return;
+        const data = await api.plan.getAddress(local);
+        setSearchResults(data.documents);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    // 입력 값이 변할 때마다 fetchData 함수를 호출하되, 입력 값에 딜레이를 적용 (300ms)
+    const delayedFetchData = setTimeout(fetchData, 300);
+    return () => clearTimeout(delayedFetchData);
+  }, [local]);
+
+  React.useEffect(() => {
+    // locationInfo가 업데이트되었을 때에만 검색 결과를 초기화
+    setSearchResults([]);
+  }, [locationInfo]);
+
   return (
     <div className={styles.container}>
       <div className={styles.template}>
