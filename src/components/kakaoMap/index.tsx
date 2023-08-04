@@ -41,15 +41,15 @@ const KakaoMap: React.FC = () => {
       const marker = new window.kakao.maps.Marker({
         position: markerPosition,
         image: new window.kakao.maps.MarkerImage(
-          "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png",
+          "http://localhost:3000/image/map/GreenMarker.svg",
           new window.kakao.maps.Size(24, 35)
         ),
       });
 
-    const content = `<div style="padding:5px; font-weight:bold;">${index + 1}</div>`;
+    //const content = `<div style="padding:5px; font-weight:bold;">${index + 1}</div>`;
 
     const customOverlay = new window.kakao.maps.CustomOverlay({
-      content: content,
+      //content: content,
       position: markerPosition,
       yAnchor: 1
     });
@@ -61,7 +61,7 @@ const KakaoMap: React.FC = () => {
     const polylineOptions = {
       path: linePath,
       strokeWeight: 2,      
-      strokeColor: 'black',
+      strokeColor: 'green',
       strokeOpacity: 1,
       strokeStyle: 'solid'
     }; 
