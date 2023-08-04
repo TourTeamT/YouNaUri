@@ -1,5 +1,7 @@
 import React, { ChangeEvent } from "react";
 import DateRangeSelector from "components/datePicker";
+import useProgressStore from "utils/progressStore";
+import { Link } from "react-router-dom";
 import * as api from 'api';
 import { ReactComponent as Search } from 'assets/svg/plan/search_icon.svg'
 import styles from './plan.module.scss';
@@ -14,6 +16,7 @@ export default function Plan() {
   const [local, setLocal] = React.useState<string>('');
   const [locationInfo, setLocationInfo] = React.useState<LocalType | null>(null);
   const [searchResults, setSearchResults] = React.useState<any[]>([]);
+  const { setPlanStep, setPlanSelect, setTimeStep } = useProgressStore();
 
   const handleResultItemClick = (result: any) => {
     setLocal(result.address_name);
@@ -24,7 +27,13 @@ export default function Plan() {
     })
     setSearchResults([]);
   };
-
+  const onClickPrev = () => {
+    setPlanStep(false);
+    setPlanSelect(false);
+  }
+  const onClickNext = () => {
+    setTimeStep(true);
+  }
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,6 +84,18 @@ export default function Plan() {
         )}
         <span className={styles.template__subTitle}>일정</span>
         <DateRangeSelector />
+        <div className={styles.template__group}>
+          <button className={styles['template__button']} onClick={() => onClickPrev()}>
+            <Link className={styles.template__link} to="/user-select/place">
+              뒤로가기
+            </Link>
+          </button>
+          <button className={styles['template__button']} onClick={() => onClickNext()}>
+            <Link className={styles.template__link} to="/user-select/time">
+              다음으로
+            </Link>
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import useProgressStore from 'utils/progressStore';
 import styles from './Cards.module.scss';
 
 interface Kind {
@@ -23,6 +24,7 @@ const classNames = (classes: IClassname) =>
 const Cards: React.FC<Props> = ({ partnerData }) => {
   const [active, setActive] = useState<number[]>([]);
   console.log(partnerData);
+  const { setPartnerSelect } = useProgressStore();
 
   const handleClick = (id: number) => {
     if (active.includes(id)) {
@@ -33,6 +35,13 @@ const Cards: React.FC<Props> = ({ partnerData }) => {
       //id가 배열에 없다면 그냥 배열에 넣기 
     }
   }
+  useEffect(()=> {
+    if (active.length > 0) {
+      setPartnerSelect(true);
+    } else {
+      setPartnerSelect(false);
+    }
+  }, [active])
 
   return (
     <div>

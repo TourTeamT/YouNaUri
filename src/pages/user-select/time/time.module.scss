@@ -5,6 +5,33 @@
   align-items: center;
   flex-direction: column;
   margin-top: 107px;
+
+  &__button {
+    background-color: #D9D9D9;
+    width: 80px;
+    height: 40px;
+    border:  none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #8E8E8E;
+    margin: 10px;
+  
+    &:hover{
+      background-color: #F5F5F5;
+      border: 1.5px solid #ff7f23;
+      color: #ff7f23;
+    }
+  
+    &:hover a {
+      background-color: #F5F5F5;
+      color: #ff7f23;
+    }
+  }
+
+  &__link {
+    color: #8E8E8E;
+    text-decoration: none;
+  }
 }
 
 .container {
@@ -153,5 +180,4 @@
   display: flex;
   width: 400px;
   margin-top: 20px;
-  justify-content: space-between;
 }
