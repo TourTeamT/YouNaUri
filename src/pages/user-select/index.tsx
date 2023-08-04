@@ -55,7 +55,7 @@ export default function UserSelect() {
       />
       <SelectProgressBar /> 
       {/* 전역변수로 프로그래스바 조정 */}
-      <Outlet context={[useUserSelectData, useUserSelectData]} />
+      <Outlet context={[userSelectData, setUserSelectData]} />
     </div>
   )
 }

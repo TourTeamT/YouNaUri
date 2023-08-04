@@ -7,8 +7,20 @@
   border-radius: 5px;
   margin-top: 50px;
 
-  &:hover {
-    background-color: #ff7f23;
-    color: white;
+  &:hover{
+    background-color: #F5F5F5;
+    border: 1.5px solid #ff7f23;
+    color: #ff7f23;
   }
+
+  &:hover a {
+    background-color: #F5F5F5;
+    color: #ff7f23;
+  }
+
+  &__link {
+    color: #8E8E8E;
+    text-decoration: none;
+  }
+
 }

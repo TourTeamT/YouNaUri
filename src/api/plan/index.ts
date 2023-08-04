@@ -36,6 +36,8 @@ export const getLocation = async () => {
       radius: 1000,
       listYN: 'Y',
       arrange: 'A',
+      contentTypeId: 12,
+      _type: 'json',
     }
   }) 
   console.log(response.data);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useUserSelectData } from "pages/user-select";
+import { Link, useNavigate } from "react-router-dom";
+import useProgressStore from "utils/progressStore";
 import { ReactComponent as Check } from 'assets/svg/plan/check.svg'
 import Next from "components/button/next";
 import Back from "components/button/back";
@@ -64,15 +66,23 @@ const TimeInput: React.FC<{
 
 export default function Time() {
   const userSelectDataArray = useUserSelectData();
-
+  const navigate = useNavigate();
   const userSelectData = Array.isArray(userSelectDataArray)
     ? userSelectDataArray[0]
     : userSelectDataArray;
-
+  const { setTimeSelect, setTimeStep } = useProgressStore();
   const { partner, place, date, time } = userSelectData || {};
+  console.log(date);
   const [formState, setFormState] = React.useState<any[]>([]);
   const [selectedDayIndex, setSelectedDayIndex] = React.useState<number | null>(0); // Keep track of the selected day index
+  const onClickPrev = () => {
+    setTimeSelect(false);
+    setTimeStep(false);
+  }
 
+  const onClickNext = () => {
+    setTimeSelect(true);
+  }
   const getDatesBetween = (): string[] => {
     if (date && date.startDate && date.endDate) {
       const dates: string[] = [];
@@ -106,6 +116,7 @@ export default function Time() {
   };
 
   const handleDayClick = (index: number) => {
+    if (index > 2) navigate('/map');
     setSelectedDayIndex(index === selectedDayIndex ? null : index);
   };
 
@@ -194,11 +205,27 @@ export default function Time() {
                   />
                 </div>
                   <div className={styles.button}>
-                    { index !== 0 && <Back setState={() => handleDayClick(index - 1)}/> }
+                    { index !== 0 ? (
+                      <button className={styles['template__button']} onClick={() => handleDayClick(index - 1)}>
+                          뒤로가기
+                      </button>
+                    ) : (
+                      <button className={styles['template__button']} onClick={() => onClickPrev()}>
+                        <Link className={styles.template__link} to="/user-select/plan">
+                          뒤로가기
+                        </Link>
+                      </button>
+                    )}
                     { index !== datesBetween.length ? (
-                        <Next setState={() => handleDayClick(index + 1)} /> 
+                        <button className={styles['template__button']} onClick={() => handleDayClick(index + 1)}>
+                          다음으로
+                        </button>
                       ) : (
-                        <Next setState={() => console.log('보내기')} />
+                        <button className={styles['template__button']} onClick={() => onClickPrev()}>
+                          <Link className={styles.template__link} to="/map">
+                            다음으로
+                          </Link>
+                        </button>
                       )
                     }
                   </div>
