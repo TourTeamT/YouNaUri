@@ -1,6 +1,7 @@
 import styles from './MyPage.module.scss';
-import Travel from './Travel';
 import Profile from './Profile';
+import TravelNavigation from './TravelNavigation';
+import { Outlet } from 'react-router-dom';
 
 export default function MyPage(): JSX.Element {
 
@@ -8,8 +9,11 @@ export default function MyPage(): JSX.Element {
     <div className={styles.body}>
       <div className={styles.container}>
         <Profile />
-        <div className={styles.travel}>
-          <Travel />
+        <div>
+          <div className={styles.travel}>
+            <TravelNavigation />
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
