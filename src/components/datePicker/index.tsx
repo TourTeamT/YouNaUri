@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import moment from 'moment';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
+import useUserSelect from 'utils/userSelectStore';
 import { ko } from 'date-fns/esm/locale';
 import { ReactComponent as Calendar } from 'assets/svg/plan/calendar_icon.svg';
 import { ReactComponent as Next } from 'assets/svg/plan/arrow_next_icon.svg';
@@ -27,8 +28,7 @@ const customHeader = ({ date, customHeaderCount }: CustomHeaderProps) => {
 };
 
 const DateRangeSelector: React.FC = () => {
-  const [startDate, setStartDate] = useState<Date>(new Date());
-  const [endDate, setEndDate] = useState<Date | null>(null);
+  const { startDate, endDate, setStartDate, setEndDate} = useUserSelect();
   const [showCalendars, setShowCalendars] = useState(false);
 
   const datePickerRef = useRef<any>(null);
