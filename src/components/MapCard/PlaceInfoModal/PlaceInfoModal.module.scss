@@ -45,10 +45,9 @@
 
   &__description {
     width: 315px;
-    height: 232px;
+    height: 212px;
     overflow-y: scroll;
     max-height: 232px;
-    overflow: hidden;
     color: #8E8E8E;
     font-family: Pretendard;
     font-size: 16px;
@@ -62,7 +61,10 @@
 .button {
   border-radius: 5px;
   background: #FF7F1E;
-  color: var(--neutral-white, #FFF);
+  color: #FFF;
+  border: none;
+  margin-bottom: 32px;
+  cursor: pointer;
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;
