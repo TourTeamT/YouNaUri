@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import useUserSelect from 'utils/userSelectStore';
 import useProgressStore from 'utils/progressStore';
 import styles from './Cards.module.scss';
 
@@ -8,7 +9,7 @@ interface Kind {
 };
 
 interface Props {
-    partnerData: Kind[];
+  partnerData: Kind[];
 };
 
 interface IClassname {
@@ -25,13 +26,16 @@ const Cards: React.FC<Props> = ({ partnerData }) => {
   const [active, setActive] = useState<number[]>([]);
   console.log(partnerData);
   const { setPartnerSelect } = useProgressStore();
+  const { setPartner } = useUserSelect();
 
   const handleClick = (id: number) => {
     if (active.includes(id)) {
       setActive(active.filter((activeId) => activeId !== id));
+      setPartner(active.filter((activeId) => activeId !== id));
       //id가 배열에 들어 있으면 필터링해서 안들어있는 애들로 배열을 다시 만듬
     } else {
       setActive([...active, id]);
+      setPartner([...active, id]);
       //id가 배열에 없다면 그냥 배열에 넣기 
     }
   }

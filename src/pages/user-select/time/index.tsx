@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useUserSelectData } from "pages/user-select";
 import { Link, useNavigate } from "react-router-dom";
 import useProgressStore from "utils/progressStore";
+import useUserSelect from "utils/userSelectStore";
 import { ReactComponent as Check } from 'assets/svg/plan/check.svg'
 import Next from "components/button/next";
 import Back from "components/button/back";
@@ -12,13 +13,6 @@ const formatDateToMMDD = (date: Date): string => {
   const month = date.getMonth() + 1;
   const day = date.getDate();
   return `${month < 10 ? "0" : ""}${month}.${day < 10 ? "0" : ""}${day}`;
-};
-
-const formatTime = (date: Date): string => {
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  const roundedMinutes = Math.floor(minutes / 30) * 30; // Round down to the nearest 30 minutes
-  return `${hours < 10 ? "0" : ""}${hours}:${roundedMinutes === 0 ? "00" : roundedMinutes}`;
 };
 
 const TimeInput: React.FC<{
@@ -71,8 +65,7 @@ export default function Time() {
     ? userSelectDataArray[0]
     : userSelectDataArray;
   const { setTimeSelect, setTimeStep } = useProgressStore();
-  const { partner, place, date, time } = userSelectData || {};
-  console.log(date);
+  const {startDate, endDate} = useUserSelect();
   const [formState, setFormState] = React.useState<any[]>([]);
   const [selectedDayIndex, setSelectedDayIndex] = React.useState<number | null>(0); // Keep track of the selected day index
   const onClickPrev = () => {
@@ -84,12 +77,12 @@ export default function Time() {
     setTimeSelect(true);
   }
   const getDatesBetween = (): string[] => {
-    if (date && date.startDate && date.endDate) {
+    if (startDate && endDate) {
       const dates: string[] = [];
-      let currentDate = new Date(date.startDate);
-      const endDate = new Date(date.endDate);
+      let currentDate = new Date(startDate);
+      const endingDate = new Date(endDate);
 
-      while (currentDate <= endDate) {
+      while (currentDate <= endingDate) {
         dates.push(formatDateToMMDD(currentDate));
         currentDate.setDate(currentDate.getDate() + 1);
       }
