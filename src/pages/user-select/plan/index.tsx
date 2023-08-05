@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import DateRangeSelector from "components/datePicker";
+import useUserSelect from "utils/userSelectStore";
 import useProgressStore from "utils/progressStore";
 import { Link } from "react-router-dom";
 import * as api from 'api';
@@ -16,6 +17,7 @@ export default function Plan() {
   const [local, setLocal] = React.useState<string>('');
   const [locationInfo, setLocationInfo] = React.useState<LocalType | null>(null);
   const [searchResults, setSearchResults] = React.useState<any[]>([]);
+  const { setEndDate, setStartDate, setStartPlace, setMapX, setMapY } = useUserSelect();
   const { setPlanStep, setPlanSelect, setTimeStep } = useProgressStore();
 
   const handleResultItemClick = (result: any) => {
@@ -25,6 +27,9 @@ export default function Plan() {
       x: result.address.x,
       y: result.address.y,
     })
+    setMapX(result.address.x);
+    setMapY(result.address.y);
+    setStartPlace(result.address_name);
     setSearchResults([]);
   };
   const onClickPrev = () => {
@@ -65,7 +70,10 @@ export default function Plan() {
             value={local}
             type="text"
             placeholder="어디서 출발하시나요?"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setLocal(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setLocal(e.target.value);
+              setStartPlace(e.target.value);
+            }}
           />
         </div>
          {/* 검색 결과를 보여주는 부분 */}
