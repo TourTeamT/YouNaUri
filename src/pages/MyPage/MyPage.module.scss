@@ -10,13 +10,10 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 150px;
 }
 
 .travel {
   display: flex;
-  margin: 10px;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }

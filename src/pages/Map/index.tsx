@@ -6,9 +6,9 @@ import RecommendPlaceCard from "components/MapCard/RecommendPlaceCard";
 import * as api from 'api';
 import styles from './Map.module.scss';
 
-type SelectedCard =  { 
+type SelectedCard = {
   image: string;
-  title: string; 
+  title: string;
   address: string;
   contentId: string;
   parking: boolean;
@@ -48,8 +48,8 @@ export default function Map() {
           </button>
         </div>
         <div className={styles.tab__list}>
-         {
-           selectedPlace.length > 0 && (
+        {
+          selectedPlace.length > 0 && (
             selectedPlace.map((item: SelectedCard, index: number) => (
               <PlaceCard 
                 image={item?.image ?? ''} 
@@ -69,8 +69,8 @@ export default function Map() {
                 index={index}
               />
             ))
-           )
-         }
+          )
+        }
         </div>
         <div className={styles.tab__footer}>
           <div className={styles.footer}>

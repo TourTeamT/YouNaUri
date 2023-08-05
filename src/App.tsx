@@ -10,6 +10,8 @@ import Map from 'pages/Map';
 import './App.css';
 import Header from 'pages/Header/index'
 import MyPage from 'pages/MyPage';
+import Intend from 'pages/MyPage/Intend';
+import Past from 'pages/MyPage/Past';
 
 function App() {
   return (
@@ -25,7 +27,10 @@ function App() {
               <Route path='plan' element={<Plan />} />
               <Route path='time' element={<Time />} />
             </Route>
-            <Route path='/myPage' element={<MyPage/>} />
+            <Route path='/myPage' element={<MyPage />}>
+              <Route path='intend' element={<Intend />} />
+              <Route path='past' element={<Past />} />
+            </Route>
             <Route path='/map' element={<Map />} />
           </Route>
         </Routes>
