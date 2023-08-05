@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import styles from './kakaoMap.module.scss';
 declare global {
   interface Window {
     kakao: any;
@@ -119,8 +119,8 @@ useEffect(() => {
 }, [marker]);
 
   return (
-    <div>
-      <div id='map' style={{ width: '1500px', height: '1000px' }} />
+    <div className={styles.map}>
+      <div className={styles.map__size} id='map' />
     </div>
   );
 };
