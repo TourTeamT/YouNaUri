@@ -28,7 +28,7 @@ export const getLocation = async () => {
       numOfRows: 10,
       pageNo: 1,
       MobileOS: 'WEB',
-      MobileApp: 'AppTest',
+      MobileApp: 'test',
       serviceKey: key,
       mapX: 126.981611,
       mapY: 37.568477,
@@ -39,6 +39,34 @@ export const getLocation = async () => {
       _type: 'json',
     }
   }) 
-  console.log(response.data);
+  return response.data.response.body.items.item;
+}
+
+export const getPlaceInfo = async (contentId: any) => {
+  const response = await location.get(`KorWithService1/detailCommon1`, {
+    params: {
+      MobileOS: 'WEB',
+      MobileApp: 'test',
+      serviceKey: key,
+      contentId: contentId,
+      overviewYN: 'Y',
+      addrinfoYN: 'Y',
+      firstImageYN: 'Y',
+      _type: 'json',
+    }
+  }) 
+  return response.data;
+}
+
+export const getDisabilityService = async (contentId: any) => {
+  const response = await location.get(`KorWithService1/detailWithTour1`, {
+    params: {
+      MobileOS: 'WEB',
+      MobileApp: 'test',
+      serviceKey: key,
+      contentId: contentId,
+      _type: 'json',
+    }
+  }) 
   return response.data;
 }
