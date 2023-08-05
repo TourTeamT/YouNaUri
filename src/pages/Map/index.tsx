@@ -1,11 +1,11 @@
 import React from "react";
-import KakaoMap from "components/kakaoMap";
-import * as api from 'api';
+import * as api from "../../api/plan/index"
+import KakaoMap from "../../components/kakaoMap";
 
 const useMap = () => {
   React.useEffect(() => {
     const getLocationData = async () => {
-      const data = await api.plan.getLocation();
+      const data = await api.getLocation();
       console.log(data);
     }
     getLocationData();

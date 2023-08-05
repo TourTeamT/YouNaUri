@@ -1,5 +1,4 @@
-import axios from "axios";
-import { instance, localPopup, location } from "api/entity";
+import { instance, localPopup, location } from "../../api/entity";
 
 export const key = 'ZYow8W4H/DX9Brl4akTY7oRSr/pQptz2enUDK3/sO6VZVKa16n948PBd6K3ic6pQVmVL54WHi6GQY1lRdzjsig==';
 const popupKey = 'U01TX0FVVEgyMDIzMDczMDAwNTEzMDExMzk3NDI=';
