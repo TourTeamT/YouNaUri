@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './PlacesButton.module.scss';
 
 interface Region {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 };
 
 interface Props {
-    placeData: Region[];
+  placeData: Region[];
 };
 
 const PlaceButton: React.FC<Props> = ({ placeData }) => {
@@ -19,9 +19,9 @@ const PlaceButton: React.FC<Props> = ({ placeData }) => {
         {
           placeData.map((place) => (
             <div key={place.id}>
-                <div className={styles.card}>{place.name}</div>
-              </div>
-            ))
+              <div className={styles.card}>{place.name}</div>
+            </div>
+          ))
         }
       </div>
     </div>
