@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import DateRangeSelector from "components/datePicker";
-import useUserSelect from "utils/userSelectStore";
-import useProgressStore from "utils/progressStore";
+import useUserSelect from "utils/store/userSelectStore";
+import useProgressStore from "utils/store/progressStore";
 import { Link } from "react-router-dom";
 import * as api from 'api';
 import { ReactComponent as Search } from 'assets/svg/plan/search_icon.svg'

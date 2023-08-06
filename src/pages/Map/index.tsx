@@ -1,7 +1,7 @@
 import React from "react";
 import KakaoMap from "components/kakaoMap";
 import PlaceCard from "components/MapCard/PlaceCard";
-import useSelectedPlace from "utils/selectPlace";
+import useSelectedPlace from "utils/store/selectPlaceStore";
 import RecommendPlaceCard from "components/MapCard/RecommendPlaceCard";
 import * as api from 'api';
 import styles from './Map.module.scss';

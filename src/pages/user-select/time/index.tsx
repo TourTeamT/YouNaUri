@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useUserSelectData } from "pages/user-select";
 import { Link, useNavigate } from "react-router-dom";
-import useProgressStore from "utils/progressStore";
-import useUserSelect from "utils/userSelectStore";
+import useProgressStore from "utils/store/progressStore";
+import useUserSelect from "utils/store/userSelectStore";
 import { ReactComponent as Check } from 'assets/svg/plan/check.svg'
 import Next from "components/button/next";
 import Back from "components/button/back";

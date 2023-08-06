@@ -3,7 +3,7 @@ import { ReactComponent as ProgressCheckCircle } from 'assets/svg/ProgressBar/Pr
 import { ReactComponent as ProgressNoneCheckCircle } from 'assets/svg/ProgressBar/ProgressNoneCheckCircle.svg';
 import { ReactComponent as ProgressBar } from 'assets/svg/ProgressBar/ProgressBar.svg';
 import { ReactComponent as NoneProgressbar } from 'assets/svg/ProgressBar/NoneProgressBar.svg';
-import useProgressStore from "utils/progressStore";
+import useProgressStore from "utils/store/progressStore";
 import styles from './SelectProgressBar.module.scss';
 
 export default function SelectProgressBar() {

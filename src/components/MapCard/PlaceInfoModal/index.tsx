@@ -1,5 +1,5 @@
 import React from 'react';
-import useSelectedPlace from 'utils/selectPlace';
+import useSelectedPlace from 'utils/store/selectPlaceStore';
 import ModalFrame from 'components/Modal/ModalFrame';
 import * as api from 'api';
 import styles from './PlaceInfoModal.module.scss';

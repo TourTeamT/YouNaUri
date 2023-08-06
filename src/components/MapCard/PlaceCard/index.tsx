@@ -1,6 +1,5 @@
 import React from "react";
-import useSelectedPlace from "utils/selectPlace";
-import cn from "utils/classnames";
+import useSelectedPlace from "utils/store/selectPlaceStore";
 import {ReactComponent as Delete} from 'assets/svg/SelectPlace/delete_icon.svg';
 import {ReactComponent as Parking} from 'assets/svg/SelectPlace/parking.svg';
 import {ReactComponent as AudioGuide} from 'assets/svg/SelectPlace/audioGuide.svg';

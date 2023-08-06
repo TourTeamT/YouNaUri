@@ -2,7 +2,7 @@ import styles from './place.module.scss';
 import { Link } from 'react-router-dom';
 import placesData from 'Data/placeData.json'
 import PlaceButton from "./PlacesButton";
-import useProgressStore from 'utils/progressStore';
+import useProgressStore from 'utils/store/progressStore';
 import Cards from "./Card";
 import { useEffect, useState } from 'react';
 

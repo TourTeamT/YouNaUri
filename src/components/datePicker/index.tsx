@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import moment from 'moment';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
-import useUserSelect from 'utils/userSelectStore';
+import useUserSelect from 'utils/store/userSelectStore';
 import { ko } from 'date-fns/esm/locale';
 import { ReactComponent as Calendar } from 'assets/svg/plan/calendar_icon.svg';
 import { ReactComponent as Next } from 'assets/svg/plan/arrow_next_icon.svg';

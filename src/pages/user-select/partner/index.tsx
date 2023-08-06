@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import partnerData from "Data/partnerData.json"
 import Cards from "./Card/index";
-import useProgressStore from "utils/progressStore";
+import useProgressStore from "utils/store/progressStore";
 import styles from './partner.module.scss';
 
 export default function Partner() {

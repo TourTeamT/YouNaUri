@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import useUserSelect from 'utils/userSelectStore';
-import useProgressStore from 'utils/progressStore';
+import useUserSelect from 'utils/store/userSelectStore';
+import useProgressStore from 'utils/store/progressStore';
 import styles from './Cards.module.scss';
 
 interface Kind {
