@@ -1,27 +1,25 @@
 import React from 'react';
 import styles from './PlacesButton.module.scss';
 
-interface Region {
-  id: number;
-  name: string;
-};
+interface City {
+  rnum: number;
+  code: string;
 
 interface Props {
-  placeData: Region[];
+  placesData: City[];
 };
 
-const PlaceButton: React.FC<Props> = ({ placeData }) => {
-    console.log(placeData);
+const PlaceButton: React.FC<Props> = ({ placesData }) => {
 
   return (
     <div>
       <div className={styles.topNavigation}>
-        {
-          placeData.map((place) => (
-            <div key={place.id}>
-              <div className={styles.card}>{place.name}</div>
-            </div>
-          ))
+        {placesData&&
+          placesData.map((data) => (
+            <div key={data.code}>
+                <div className={styles.card}>{data.name}</div>
+              </div>
+            ))
         }
       </div>
     </div>

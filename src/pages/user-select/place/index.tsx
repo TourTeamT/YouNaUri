@@ -6,7 +6,6 @@ import useProgressStore from 'utils/progressStore';
 import Cards from "./Card";
 import { useEffect, useState } from 'react';
 
-
 export default function Place() {
   const [cityData, setCityData] = useState<any | undefined>();
   const { setPlanStep, setPlaceStep, setPlaceSelect } = useProgressStore();
@@ -34,7 +33,7 @@ export default function Place() {
       <div className={styles.template}>
         <div>
           <div className={styles['template__navigation']}>
-            <PlaceButton placeData={placesData} />
+            <PlaceButton placesData={placesData} />
           </div>
           <div>
             <Cards cityData={cityData}/>

@@ -8,8 +8,8 @@ import Partner from 'pages/user-select/partner';
 import Time from 'pages/user-select/time';
 import Login from 'pages/Auth/Login';
 import Map from 'pages/Map';
+import MyPage from 'pages/MyPage';
 import Header from 'pages/Header';
-import './App.css';
 import Intend from 'pages/MyPage/Intend';
 import Past from 'pages/MyPage/Past';
 
@@ -19,6 +19,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
+          {/* <Route path="/dateChoice" element={<DateChoice />} /> */}
           <Route path="/" element={<Header />}>
             <Route path='/user-select' element={<UserSelect />}>
               <Route path='partner' element={<Partner />} />

@@ -48,8 +48,8 @@ export default function Map() {
           </button>
         </div>
         <div className={styles.tab__list}>
-        {
-          selectedPlace.length > 0 && (
+         {
+           selectedPlace.length > 0 && (
             selectedPlace.map((item: SelectedCard, index: number) => (
               <PlaceCard 
                 image={item?.image ?? ''} 
@@ -69,8 +69,8 @@ export default function Map() {
                 index={index}
               />
             ))
-          )
-        }
+           )
+         }
         </div>
         <div className={styles.tab__footer}>
           <div className={styles.footer}>
