@@ -70,3 +70,17 @@ export const getDisabilityService = async (contentId: any) => {
   }) 
   return response.data;
 }
+
+export const getDetailCommon = async (contentId: any) => {
+  const response = await location.get(`KorWithService1/detailIntro1`, {
+    params: {
+      MobileOS: 'WEB',
+      MobileApp: 'test',
+      serviceKey: key,
+      contentId: contentId,
+      contentTypeId: 12,
+      _type: 'json',
+    }
+  })
+  return response.data;
+}

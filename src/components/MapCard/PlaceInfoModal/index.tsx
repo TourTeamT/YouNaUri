@@ -17,7 +17,16 @@ type Props = {
 
 
 export default function PlaceInfoModal (props: Props) {
-  const {setOnModal, firstImage, title, description, address, contentId} = props;
+  const {
+    setOnModal, 
+    firstImage,
+    title, 
+    description, 
+    address, 
+    contentId,
+    mapX,
+    mapY,
+  } = props;
   const [info, setInfo] = React.useState<any>();
   const { selectedPlace, setAddSelectedPlace } = useSelectedPlace();
   const onClickAdd = () => {
@@ -26,6 +35,8 @@ export default function PlaceInfoModal (props: Props) {
       title: title,
       address: address,
       contentId: contentId,
+      mapX: mapX,
+      mapY: mapY,
       parking: info?.parking.length > 0 ? true : false,
       wheelChair:info?.wheelchair.length > 0 ? true : false,
       dotBlock:info?.braileblock.length > 0 ? true : false,
@@ -42,7 +53,9 @@ export default function PlaceInfoModal (props: Props) {
   React.useEffect(() => {
     const getContentData = async () => {
       const data = await api.plan.getDisabilityService(contentId);
+      const infoData = await api.plan.getDetailCommon(contentId);
       console.log(data.response.body.items.item[0]);
+      console.log(infoData);
       setInfo(data.response.body.items.item[0]);
       console.log(info);
     }
