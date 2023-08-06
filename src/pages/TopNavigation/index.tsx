@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './TopNavigation.module.scss';
 //import { useAuth } from 'store/auth';
+import { ReactComponent as Logo } from 'assets/svg/Navi/logo.svg'
+
 
 export default function TopNavigation(): JSX.Element {
   //const auth = useAuth();
@@ -22,11 +24,11 @@ export default function TopNavigation(): JSX.Element {
 
   return (
     <nav className={styles['top-navigation']}>
-      {/* 로고 정해지면 코드 활성화 */}
-      {/* <div className={styles['top-navigation__logo']}>
+      <div className={styles['top-navigation__logo']}>
         <Link to="/" className={styles['top-navigation__logo-link']}>
+          <Logo />
         </Link>
-      </div> */}
+      </div>
 
       <ul className={styles['top-navigation__links']}>
         {tabs.map((tab) => (
