@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  width: 848px;
+  border-bottom: solid 1px gainsboro;
+  margin-bottom: 14px;
+
+  &__navigation {
+    display: flex;
+    border-bottom: 1px gray;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__button {
+    display: flex;
+    border: none;
+    margin: 5px 15px;
+    font-size: 20px;
+    background-color: #FAFAFA;
+
+    &:hover {
+    border-bottom: solid 2px #ff7f23;
+    cursor: pointer;
+    color: #ff7f23;
+  }
+  }
+}

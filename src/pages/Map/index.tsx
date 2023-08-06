@@ -6,9 +6,9 @@ import RecommendPlaceCard from "components/MapCard/RecommendPlaceCard";
 import * as api from 'api';
 import styles from './Map.module.scss';
 
-type SelectedCard =  { 
+type SelectedCard = {
   image: string;
-  title: string; 
+  title: string;
   address: string;
   contentId: string;
   parking: boolean;
