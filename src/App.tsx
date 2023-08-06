@@ -8,7 +8,6 @@ import Partner from 'pages/user-select/partner';
 import Time from 'pages/user-select/time';
 import Login from 'pages/Auth/Login';
 import Map from 'pages/Map';
-import MyPage from 'pages/MyPage';
 import Header from 'pages/Header';
 import Intend from 'pages/MyPage/Intend';
 import Past from 'pages/MyPage/Past';
