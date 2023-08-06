@@ -2,6 +2,7 @@ import React from "react";
 import KakaoMap from "components/kakaoMap";
 import PlaceCard from "components/MapCard/PlaceCard";
 import useSelectedPlace from "utils/store/selectPlaceStore";
+import useUserSelect from "utils/store/userSelectStore";
 import RecommendPlaceCard from "components/MapCard/RecommendPlaceCard";
 import * as api from 'api';
 import styles from './Map.module.scss';
@@ -26,10 +27,11 @@ type SelectedCard = {
 export default function Map() {
   const [recommendPlace, setRecommendPlace] = React.useState<any[]>([]);
   const { selectedPlace } = useSelectedPlace();
+  const { startDate, endDate, endPlace, mapX, mapY} = useUserSelect();
 
   React.useEffect(() => {
     const getLocationData = async () => {
-      const data = await api.plan.getLocation();
+      const data = await api.plan.getLocation(mapX, mapY);
       console.log(data);
       setRecommendPlace(data);
     }

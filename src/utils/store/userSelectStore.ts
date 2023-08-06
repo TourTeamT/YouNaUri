@@ -8,6 +8,8 @@ type State = {
   endDate: Date | null,
   mapX: any
   mapY: any
+  startMapX: any
+  startMapY: any
   time: any[]
 };
 
@@ -20,6 +22,8 @@ type Actions = {
   setTime: (value: any[]) => void;
   setMapX: (value: string) => void;
   setMapY: (value: string) => void;
+  setStartMapX: (value: string) => void;
+  setStartMapY: (value: string) => void;
 };
 
 const useUserSelect = create<State & Actions>((set) => ({
@@ -29,6 +33,8 @@ const useUserSelect = create<State & Actions>((set) => ({
   startDate: null,
   endDate: null,
   time: [],
+  startMapX: '',
+  startMapY: '',
   mapX: '',
   mapY: '',
   setPartner: (value) => set({ partner: value }),
@@ -39,6 +45,8 @@ const useUserSelect = create<State & Actions>((set) => ({
   setTime: (value) => set({ time: value }),
   setMapX: (value) => set({ mapX: value }),
   setMapY: (value) => set({ mapY: value }),
+  setStartMapX: (value) => set({ startMapX: value }),
+  setStartMapY: (value) => set({ startMapY: value }),
 }));
 
 export default useUserSelect;

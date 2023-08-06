@@ -81,7 +81,13 @@
 }
 
 .search {
+  border: 1px solid #8E8E8E;
+
   &__item {
     cursor: pointer;
+    text-align: left;
+    border-bottom: 1px solid #8E8E8E;
+    height: 24px;
+    padding: 4px;
   }
 }

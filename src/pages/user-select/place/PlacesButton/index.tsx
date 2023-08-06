@@ -11,7 +11,7 @@ interface Props {
 };
 
 const PlaceButton: React.FC<Props> = ({ placeData }) => {
-    console.log(placeData);
+  console.log(placeData);
 
   return (
     <div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import placesData from 'Data/placeData.json'
 import PlaceButton from "./PlacesButton";
 import useProgressStore from 'utils/store/progressStore';
+import useUserSelect from 'utils/store/userSelectStore';
 import Cards from "./Card";
 import { useEffect, useState } from 'react';
 
@@ -10,15 +11,16 @@ import { useEffect, useState } from 'react';
 export default function Place() {
   const [cityData, setCityData] = useState<any | undefined>();
   const { setPlanStep, setPlaceStep, setPlaceSelect } = useProgressStore();
-  //const [areaCode, setAreaCode] = useState(1);
+  const { setEndPlace } = useUserSelect();
+
   const onClickPrev = () => {
     setPlaceStep(false);
     setPlaceSelect(false);
   }
   const onClickNext = () => {
     setPlanStep(true);
+    setEndPlace(cityData);
   }
-  //const [areaCode, setAreaCode] = useState(1);
 
   useEffect(() => {
   fetch(`http://apis.data.go.kr/B551011/KorWithService1/areaCode1?serviceKey=BwoLebLpztIG3bXaz2pSaRNQPd4K3UylwKCU1qf6TeB%2B%2FEj%2B4fs55oaRtcON2TnD2bEJHW9E8ocH9toev66qow%3D%3D&areaCode=1&numOfRows=25&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json`)
@@ -29,6 +31,7 @@ export default function Place() {
   if (!setCityData) {
     return null;
   }
+
   console.log(cityData);
 
   return (

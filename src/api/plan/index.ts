@@ -22,7 +22,13 @@ export const getAddressPopup =  async (location: any) => {
   return response.data;
 }
 
-export const getLocation = async () => {
+export const getLocation = async (mapX: any, mapY: any) => {
+  let x = mapX;
+  let y = mapY;
+  if (mapX === '' || mapY === '') {
+    x = '126.981611';
+    y = '37.568477';
+  }
   const response = await location.get(`KorWithService1/locationBasedList1`, {
     params: {
       numOfRows: 10,
@@ -30,16 +36,17 @@ export const getLocation = async () => {
       MobileOS: 'WEB',
       MobileApp: 'test',
       serviceKey: key,
-      mapX: 126.981611,
-      mapY: 37.568477,
+      mapX: x,
+      mapY: y,
       radius: 1000,
       listYN: 'Y',
       arrange: 'A',
       contentTypeId: 12,
       _type: 'json',
     }
-  }) 
-  return response.data.response.body.items.item;
+  })
+  console.log(response);
+  return response.data.response?.body.items.item;
 }
 
 export const getPlaceInfo = async (contentId: any) => {
