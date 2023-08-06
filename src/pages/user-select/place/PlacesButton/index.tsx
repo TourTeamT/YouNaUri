@@ -4,6 +4,8 @@ import styles from './PlacesButton.module.scss';
 interface City {
   rnum: number;
   code: string;
+  name: string;
+}
 
 interface Props {
   placesData: City[];
