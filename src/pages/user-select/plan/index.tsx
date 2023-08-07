@@ -21,6 +21,7 @@ export default function Plan() {
   const { setPlanStep, setPlanSelect, setTimeStep } = useProgressStore();
 
   const handleResultItemClick = (result: any) => {
+    console.log(result);
     setLocal(result.address_name);
     setLocationInfo({
       location: result.address_name,
@@ -105,7 +106,7 @@ export default function Plan() {
                 className={styles.search__item}
                 onClick={() => handleResultItemClick(result)}
               >
-                {result?.address_name}
+                {result?.address_name} {result?.x} {result?.y}
               </div>
             ))}
           </div>

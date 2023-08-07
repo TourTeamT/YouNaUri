@@ -1,6 +1,7 @@
-import { instance, localPopup, location } from "../../api/entity";
+import { instance, localPopup, location, server } from "../../api/entity";
 
 export const key = process.env.REACT_APP_TOUR_API_KEY;
+
 
 export const getAddress =  async (address: string) => {
   const response = await instance.get(`v2/local/search/address.json`, {
@@ -71,5 +72,10 @@ export const getDetailCommon = async (contentId: any) => {
       _type: 'json',
     }
   })
+  return response.data;
+}
+
+export const getServerRoute = async (params: any) => {
+  const response = await server.get(`map-navi/recommended/route`, params)
   return response.data;
 }

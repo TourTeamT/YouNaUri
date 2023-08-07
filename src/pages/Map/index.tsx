@@ -26,7 +26,40 @@ type SelectedCard = {
 export default function Map() {
   const [recommendPlace, setRecommendPlace] = React.useState<any[]>([]);
   const { selectedPlace } = useSelectedPlace();
-
+  const onClickNext = async () => {
+    const serverResponse = api.plan.getServerRoute({
+      times: [
+        {
+          hour: '07',
+          min: '30',
+        },
+        {
+          hour: '20',
+          min: '30',
+        }
+      ],
+      startPoint: {
+        latitude: 123,
+        longtitude: 123,
+        address: 'test',
+        hour: 2,
+        min: 0,
+        img: '0',
+        category_name: '관광코스',
+      },
+      endPoint: {
+        latitude: 123,
+        longtitude: 123,
+        address: 'test',
+        hour: 2,
+        min: 0,
+        img: '0',
+        category_name: '관광코스',
+      },
+      course: selectedPlace,
+    });
+    console.log(serverResponse);
+  }
   React.useEffect(() => {
     const getLocationData = async () => {
       const data = await api.plan.getLocation();
@@ -74,7 +107,7 @@ export default function Map() {
         </div>
         <div className={styles.tab__footer}>
           <div className={styles.footer}>
-            <button className={styles.footer__place}>장소 확정하기</button>
+            <button className={styles.footer__place} onClick={() => onClickNext()}>장소 확정하기</button>
             <button className={styles.footer__back}>뒤로가기</button>
           </div>
         </div>
