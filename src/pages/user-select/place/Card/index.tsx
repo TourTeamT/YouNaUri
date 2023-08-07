@@ -1,38 +1,27 @@
 import React from 'react';
 import styles from './Cards.module.scss';
 import { useState, useEffect } from 'react';
+import { ReactComponent as Marker } from 'assets/svg/Place/marker.svg'
 
-interface Attraction {
-  name: string;
-  type?: string;
-  image?: string;
-}
 
 interface Region {
-  id: number;
   name: string;
-  attractions: Attraction[];
+  image: string;
+  local: string;
 }
 
 interface CardsProps {
-  placesData: Region[];
+  places: Region[];
 }
 
-const Cards: React.FC<CardsProps> = ({ placesData }) => {
+const Cards: React.FC<CardsProps> = ({ places }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [places, setPlaces] = useState<{ name: string; image: string }[]>([]);
-  
   
   useEffect(() => {
-    if (placesData.length > 0) {
+    if (places.length > 0) {
       setIsLoading(false);
-      placesData.forEach((place) => {
-        place.attractions.forEach((attraction) => {
-          setPlaces((prevPlaces) => [...prevPlaces, { name: attraction.name, image: attraction.image || '' }]);
-        });
-      });
     }
-  }, [placesData]);
+  }, [places]);
 
   if (isLoading) {
         // 로딩 상태일 때 로딩 스켈레톤을 렌더링
@@ -65,7 +54,11 @@ const Cards: React.FC<CardsProps> = ({ placesData }) => {
               <div className={styles.card}>
                 <img src={place.image} alt={place.name} className={styles['card__image']}></img>
                 <div className={styles['card__box']}>
-                  <div>{place.name}</div>
+                  <div className={styles['card__title']}>{place.name}</div>
+                  <div className={styles['card__container']}>
+                    <Marker className={styles['card__marker']}/>
+                    <div className={styles['card__subTitle']}>{place.local}</div>
+                  </div>
                 </div>
               </div>
             ))

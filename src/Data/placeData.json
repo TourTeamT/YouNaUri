@@ -5,7 +5,8 @@
         "attractions": [
             {
                 "name": "수도권이 없으니..",
-                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjhfMjgw%2FMDAxNjYxNjkwODQ2MjUw._srUHCQoudPdt4P0aPFb5Qj7XAFhdj_b_wpcRVpI04sg.V9mcgkC-6GR5FbbNoOWR1Wu4QEPPC-knZeMXaJHRERQg.JPEG.jjnjju%2FIMG_6895.jpg&type=sc960_832"
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjhfMjgw%2FMDAxNjYxNjkwODQ2MjUw._srUHCQoudPdt4P0aPFb5Qj7XAFhdj_b_wpcRVpI04sg.V9mcgkC-6GR5FbbNoOWR1Wu4QEPPC-knZeMXaJHRERQg.JPEG.jjnjju%2FIMG_6895.jpg&type=sc960_832",
+                "local": "수도권"
             }
         ]
     },
@@ -15,11 +16,13 @@
         "attractions": [
             {
                 "name": "속초시2",
-                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjhfMjgw%2FMDAxNjYxNjkwODQ2MjUw._srUHCQoudPdt4P0aPFb5Qj7XAFhdj_b_wpcRVpI04sg.V9mcgkC-6GR5FbbNoOWR1Wu4QEPPC-knZeMXaJHRERQg.JPEG.jjnjju%2FIMG_6895.jpg&type=sc960_832"
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjhfMjgw%2FMDAxNjYxNjkwODQ2MjUw._srUHCQoudPdt4P0aPFb5Qj7XAFhdj_b_wpcRVpI04sg.V9mcgkC-6GR5FbbNoOWR1Wu4QEPPC-knZeMXaJHRERQg.JPEG.jjnjju%2FIMG_6895.jpg&type=sc960_832",
+                "local": "강원도"
             },
             {
                 "name": "강릉시",
-                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MjNfMTY0%2FMDAxNjg0ODQyMjk5NDA5.0iOl9VFhb9wXsORlLycbdEDdbaC5lrTEDcayu1k_X4Qg.WJZY7jcnVj4Wq7dLjf3EElU425hJjsEo_2urnMzncCEg.JPEG.mixsun%2F2.JPG&type=sc960_832"
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA1MjNfMTY0%2FMDAxNjg0ODQyMjk5NDA5.0iOl9VFhb9wXsORlLycbdEDdbaC5lrTEDcayu1k_X4Qg.WJZY7jcnVj4Wq7dLjf3EElU425hJjsEo_2urnMzncCEg.JPEG.mixsun%2F2.JPG&type=sc960_832",
+                "local": "강릉시"
             }
         ]
     },
@@ -29,7 +32,8 @@
         "attractions": [
             {
                 "name": "여주시",
-                "image": "https://discord.com/channels/1129636311247106098/1129636633034096720/1137764515136675930"
+                "image": "https://discord.com/channels/1129636311247106098/1129636633034096720/1137764515136675930",
+                "local": "경기도"
             }
         ]
     },
@@ -39,11 +43,13 @@
         "attractions": [
             {
                 "name": "안동시",
-                "image": " https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAzMTVfNTMg%2FMDAxNjc4ODg4MjI0MTUy.bfvyK4Mb8SwgML8BLaS-2XieHVS81PmJKanQQ2sHGQIg.yjZE06q74wi-RY0kSj7tMU4XEFOXGwnP8e_AKrHYhVQg.JPEG.husky4th%2FIMG_3525.jpeg&type=sc960_832"
+                "image": " https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAzMTVfNTMg%2FMDAxNjc4ODg4MjI0MTUy.bfvyK4Mb8SwgML8BLaS-2XieHVS81PmJKanQQ2sHGQIg.yjZE06q74wi-RY0kSj7tMU4XEFOXGwnP8e_AKrHYhVQg.JPEG.husky4th%2FIMG_3525.jpeg&type=sc960_832",
+                "local": "경상도"
             },
             {
                 "name": "통영시",
-                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTlfMTgy%2FMDAxNjcxNDIwNTE1MzMy.vv1u-okvWzFOCqAf1BOFTFejqDQh6b0tcVm-hpFoARsg.iegE40fSbjCOKu6pL2YFg90znuiAy0qmCqsE0MAmR4Eg.JPEG.22soye%2F20221218%25A3%25DF113537.jpg&type=sc960_832"
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTlfMTgy%2FMDAxNjcxNDIwNTE1MzMy.vv1u-okvWzFOCqAf1BOFTFejqDQh6b0tcVm-hpFoARsg.iegE40fSbjCOKu6pL2YFg90znuiAy0qmCqsE0MAmR4Eg.JPEG.22soye%2F20221218%25A3%25DF113537.jpg&type=sc960_832",
+                "local": "통영시"
             }
         ]
     },
@@ -53,7 +59,8 @@
         "attractions": [
             {
                 "name": "무주군",
-                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MjNfMTE3%2FMDAxNjYzOTE3Nzk3Nzg2.C_1uRKlCEArNgkPc0hv0gfS7Y9KHy0WzI3__YjS3SWwg.2AevSHvvOaFku99i1tjwVWkEJnP5_ajtTnmqERISNY8g.JPEG.yuni288%2FIMG_1592.JPG&type=sc960_832"
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MjNfMTE3%2FMDAxNjYzOTE3Nzk3Nzg2.C_1uRKlCEArNgkPc0hv0gfS7Y9KHy0WzI3__YjS3SWwg.2AevSHvvOaFku99i1tjwVWkEJnP5_ajtTnmqERISNY8g.JPEG.yuni288%2FIMG_1592.JPG&type=sc960_832",
+                "local": "전라도"
             }
         ]
     },
@@ -63,7 +70,8 @@
         "attractions": [
             {
                 "name": "충주시",
-                "image": "https://postfiles.pstatic.net/MjAyMzA3MDdfMjg2/MDAxNjg4NzI2NzE2ODY3.z2WE1Vjm4xDJ2jAkWahZm1bFYDR2Jwltm1ijuSc57-kg.O_7C0vkSihFZfKa-eLr8Td9b5PfNV0f8wjeg077PZFQg.JPEG.salut246/20230517%EF%BC%BF133424.jpg?type=w773"
+                "image": "https://postfiles.pstatic.net/MjAyMzA3MDdfMjg2/MDAxNjg4NzI2NzE2ODY3.z2WE1Vjm4xDJ2jAkWahZm1bFYDR2Jwltm1ijuSc57-kg.O_7C0vkSihFZfKa-eLr8Td9b5PfNV0f8wjeg077PZFQg.JPEG.salut246/20230517%EF%BC%BF133424.jpg?type=w773",
+                "local": "충청도"
             }
         ]
     },
@@ -73,7 +81,8 @@
         "attractions": [
             {
                 "name": "서귀포시",
-                "image": "https://postfiles.pstatic.net/MjAyMzA2MDZfMjc0/MDAxNjg2MDIwNjE5Mzk0.2c9hVnL6qIHVV4tLr8UKQMSSvt0OD62-rcwtMNRAnMEg.OBjAGYS-aFAD8vqe6NHPzemGgxe5IDNHJqcvBRDqy_kg.JPEG.mixsun/1.JPG?type=w966"
+                "image": "https://postfiles.pstatic.net/MjAyMzA2MDZfMjc0/MDAxNjg2MDIwNjE5Mzk0.2c9hVnL6qIHVV4tLr8UKQMSSvt0OD62-rcwtMNRAnMEg.OBjAGYS-aFAD8vqe6NHPzemGgxe5IDNHJqcvBRDqy_kg.JPEG.mixsun/1.JPG?type=w966",
+                "local": "제주도"
             }
         ]
     }
