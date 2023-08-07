@@ -15,7 +15,7 @@
         "name": "강원도",
         "attractions": [
             {
-                "name": "속초시2",
+                "name": "속초시",
                 "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjhfMjgw%2FMDAxNjYxNjkwODQ2MjUw._srUHCQoudPdt4P0aPFb5Qj7XAFhdj_b_wpcRVpI04sg.V9mcgkC-6GR5FbbNoOWR1Wu4QEPPC-knZeMXaJHRERQg.JPEG.jjnjju%2FIMG_6895.jpg&type=sc960_832",
                 "local": "강원도"
             },
@@ -32,7 +32,7 @@
         "attractions": [
             {
                 "name": "여주시",
-                "image": "https://discord.com/channels/1129636311247106098/1129636633034096720/1137764515136675930",
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MTNfMjg4%2FMDAxNjg2NTgyMzcyMTI3.7LrOfISnAPfyQAlM7JfhG-3jj-33-tkojkO_L7kWfZ4g.N-kmW1PkpGa9DNhL3gmZD07n9WSzSYHBOduJnWjfvuog.JPEG.idgvv%2FIMG_2579.JPG&type=sc960_832",
                 "local": "경기도"
             }
         ]
@@ -49,7 +49,7 @@
             {
                 "name": "통영시",
                 "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTlfMTgy%2FMDAxNjcxNDIwNTE1MzMy.vv1u-okvWzFOCqAf1BOFTFejqDQh6b0tcVm-hpFoARsg.iegE40fSbjCOKu6pL2YFg90znuiAy0qmCqsE0MAmR4Eg.JPEG.22soye%2F20221218%25A3%25DF113537.jpg&type=sc960_832",
-                "local": "통영시"
+                "local": "경상도"
             }
         ]
     },
@@ -70,7 +70,7 @@
         "attractions": [
             {
                 "name": "충주시",
-                "image": "https://postfiles.pstatic.net/MjAyMzA3MDdfMjg2/MDAxNjg4NzI2NzE2ODY3.z2WE1Vjm4xDJ2jAkWahZm1bFYDR2Jwltm1ijuSc57-kg.O_7C0vkSihFZfKa-eLr8Td9b5PfNV0f8wjeg077PZFQg.JPEG.salut246/20230517%EF%BC%BF133424.jpg?type=w773",
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MDVfOTQg%2FMDAxNjg1OTcyODI1NzAz.Xfm_BGTXaYJYFaGrYV_weZt1euN9XRuuolo1MLwzo8Qg.Un3Pf8kKyzkz9sKQOLGp77Up8a0OjlTqLOnwHjAN7AUg.JPEG.sja4064%2F20230430%25A3%25DF160412.jpg&type=sc960_832",
                 "local": "충청도"
             }
         ]
@@ -81,7 +81,7 @@
         "attractions": [
             {
                 "name": "서귀포시",
-                "image": "https://postfiles.pstatic.net/MjAyMzA2MDZfMjc0/MDAxNjg2MDIwNjE5Mzk0.2c9hVnL6qIHVV4tLr8UKQMSSvt0OD62-rcwtMNRAnMEg.OBjAGYS-aFAD8vqe6NHPzemGgxe5IDNHJqcvBRDqy_kg.JPEG.mixsun/1.JPG?type=w966",
+                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMDFfMjg2%2FMDAxNjY0NjM1ODcxNzA0.vVaEdQPNwW-RxbCNhmwWA9JAoYmgjX95TNmh2YbM-aUg.z6qx__ZdK8ER7IXYsvJG_DByD46Z5RoK4IyG0ZyAzrog.JPEG.lea8058%2FKakaoTalk_20221001_203937859_18.jpg&type=sc960_832",
                 "local": "제주도"
             }
         ]

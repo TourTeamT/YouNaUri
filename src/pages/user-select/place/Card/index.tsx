@@ -24,7 +24,6 @@ const Cards: React.FC<CardsProps> = ({ places }) => {
   }, [places]);
 
   if (isLoading) {
-        // 로딩 상태일 때 로딩 스켈레톤을 렌더링
     return (
       <div>
         <div className={styles.container}>

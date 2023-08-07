@@ -2,10 +2,15 @@ import { useState, useEffect } from 'react';
 import useUserSelect from 'utils/userSelectStore';
 import useProgressStore from 'utils/progressStore';
 import styles from './Cards.module.scss';
+import bilndness from 'assets/svg/Partner/bilndness.svg';
+import deafness from 'assets/svg/Partner/deafness.svg';
+import elderly from 'assets/svg/Partner/elderly.svg';
+import infant from 'assets/svg/Partner/infant.svg';
+import physical from 'assets/svg/Partner/physical.svg';
 
 interface Kind {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 };
 
 interface Props {
@@ -51,12 +56,18 @@ const Cards: React.FC<Props> = ({ partnerData }) => {
     <div>
       <div className={styles.container}>
         {
-          partnerData.map((data) => (
+          partnerData.map((data,index) => (
             <div className={classNames({
             [styles['card']]: true,
             [styles['card__active']]: active.includes(data.id),
             })} onClick={() => handleClick(data.id)}>
-              <div className={styles['card__image']}></div>
+              <div className={styles['card__image']}>
+              {index === 0 && <img src={physical} alt="icon" />}
+              {index === 1 && <img src={bilndness} alt="icon" />}
+              {index === 2 && <img src={deafness} alt="icon" />}
+              {index === 3 && <img src={infant} alt="icon" />}
+              {index === 4 && <img src={elderly} alt="icon" />}
+              </div>
               <div key={data.id} className={styles['card__title']}>{data.name}</div>
             </div>
           ))
