@@ -28,12 +28,13 @@ function App() {
             </Route>
             <Route path='/myPage' element={<MyPage />}>
               <Route path='past' element={<Past />} />
+              <Route path='intend' element={<Intend />} />
             </Route>
             <Route path='/map' element={<Map />} />
           </Route >
         </Routes>
         </div>
-     </Router>
+    </Router>
   )
 }
 

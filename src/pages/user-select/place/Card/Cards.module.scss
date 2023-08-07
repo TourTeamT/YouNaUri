@@ -1,25 +1,22 @@
-.bbb {
-  display: flex;
+.container {
+  width: 1135px;
+  margin-top: 50px;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  // margin-left: 100px;
-  // margin-right: 100px;
+.box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 1000px;
+  gap: 16px;
+  margin-bottom: 35px;
 }
+
 
 .card {
-  display: flex;
-  width: 272px;
-  height: 350px;
   background-color: gainsboro;
-  margin: 20px 10px;
   border-radius: 10px;
-  flex-direction: column-reverse;
+  flex-direction: column;
+
   &:hover {
     border: solid 1.5px #ff7f23;
     cursor: pointer;
