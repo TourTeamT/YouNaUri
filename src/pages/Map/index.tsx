@@ -5,64 +5,32 @@ import useSelectedPlace from "utils/selectPlace";
 import RecommendPlaceCard from "components/MapCard/RecommendPlaceCard";
 import * as api from 'api';
 import styles from './Map.module.scss';
+import useUserSelect from "utils/userSelectStore";
 
 type SelectedCard = {
-  image: string;
+  img: string;
   title: string;
   address: string;
   contentId: string;
-  parking: boolean;
-  wheelChair: boolean;
-  dotBlock: boolean;
-  audioGuide: boolean;
-  helpDog: boolean;
-  signGuide: boolean;
-  videoGuide: boolean;
-  babySpareChair: boolean;
-  lactationRoom: boolean;
-  stroller: boolean;
+  filter: any[];
 }
 
 export default function Map() {
   const [recommendPlace, setRecommendPlace] = React.useState<any[]>([]);
   const { selectedPlace } = useSelectedPlace();
+  const { time, startPlace, endPlace } = useUserSelect();
   const onClickNext = async () => {
-    const serverResponse = api.plan.getServerRoute({
-      times: [
-        {
-          hour: '07',
-          min: '30',
-        },
-        {
-          hour: '20',
-          min: '30',
-        }
-      ],
-      startPoint: {
-        latitude: 123,
-        longtitude: 123,
-        address: 'test',
-        hour: 2,
-        min: 0,
-        img: '0',
-        category_name: '관광코스',
-      },
-      endPoint: {
-        latitude: 123,
-        longtitude: 123,
-        address: 'test',
-        hour: 2,
-        min: 0,
-        img: '0',
-        category_name: '관광코스',
-      },
-      course: selectedPlace,
-    });
+    const serverResponse = await api.plan.getServerRoute([{
+      times: time,
+      startPoint: startPlace,
+      destination: endPlace,
+      courses: selectedPlace,
+    }]);
     console.log(serverResponse);
   }
   React.useEffect(() => {
     const getLocationData = async () => {
-      const data = await api.plan.getLocation();
+      const data = await api.plan.getLocation(endPlace.longitude ,endPlace.latitude );
       console.log(data);
       setRecommendPlace(data);
     }
@@ -74,7 +42,7 @@ export default function Map() {
         <div className={styles.tab__info}>
           <div className={styles.info}>
             <div className={styles.info__title}>제주 여행</div>
-            <div className={styles.info__date}>1월 12일 금 - 1월 15일 월</div>
+            <div className={styles.info__date}>8월 11일 금 - 8월 13일 일</div>
           </div>          
           <button className={styles.tab__change}>
             변경
@@ -85,20 +53,20 @@ export default function Map() {
           selectedPlace.length > 0 && (
             selectedPlace.map((item: SelectedCard, index: number) => (
               <PlaceCard 
-                image={item?.image ?? ''} 
+                img={item?.img ?? ''} 
                 title={item?.title ?? ''}
                 address={item?.address ?? ''}
                 contentId={item?.contentId ?? ''}
-                parking={item?.parking ?? false}
-                wheelChair={item?.wheelChair ?? false}
-                dotBlock={item?.dotBlock ?? false}
-                audioGuide={item?.audioGuide ?? false}
-                helpDog={item?.helpDog ?? false}
-                signGuide={item?.signGuide ?? false}
-                videoGuide={item?.videoGuide ?? false}
-                babySpareChair={item?.babySpareChair ?? false}
-                lactationRoom={item?.lactationRoom ?? false}
-                stroller={item?.stroller ?? false}
+                parking={item?.filter.includes('전용주차구역')}
+                wheelChair={item?.filter.includes('휠체어대여')}
+                dotBlock={item?.filter.includes('점자블록')}
+                audioGuide={item?.filter.includes('오디오가이드')}
+                helpDog={item?.filter.includes('보조견동반')}
+                signGuide={item?.filter.includes('수어안내')}
+                videoGuide={item?.filter.includes('자막해설')}
+                babySpareChair={item?.filter.includes('유아용의자')}
+                lactationRoom={item?.filter.includes('수유실')}
+                stroller={item?.filter.includes('유모차대여')}
                 index={index}
               />
             ))

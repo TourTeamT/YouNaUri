@@ -31,12 +31,15 @@ export default function PlaceInfoModal (props: Props) {
   const { selectedPlace, setAddSelectedPlace } = useSelectedPlace();
   const onClickAdd = () => {
     setAddSelectedPlace({ 
+      latitude: mapY,
+      longitude: mapX,
       img: firstImage, 
       title: title,
       address: address,
+      hour: 2,
+      min: 0,
+      category_name: '관광코스',
       contentId: contentId,
-      latitude: mapX,
-      longitude: mapY,
       filter: info
     });
   }

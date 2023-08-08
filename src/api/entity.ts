@@ -23,7 +23,7 @@ export const key = 'ZYow8W4H%2FDX9Brl4akTY7oRSr%2FpQptz2enUDK3%2FsO6VZVKa16n948P
 const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjkxMzI1ODY2LCJleHAiOjE2OTEzNjkwNjZ9.hSZyzUgiURXqWwHyr_YGaffLfmLV935NQGXnkFM4Pqc&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjkxMzI1ODY2LCJleHAiOjE2OTE5MzA2NjZ9.jKWvO1UtT-uL0ft7s6RNKEHMCW5TztWv83ja22MEJYg';
 
 export const server = axios.create({
-  baseURL: 'http://3.37.87.24:3000'
+  baseURL: 'http://3.37.87.24:3000/'
 })
 
 server.defaults.headers.common['Authorization'] = accessToken;
