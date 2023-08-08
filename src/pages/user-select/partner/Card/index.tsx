@@ -30,7 +30,6 @@ const classNames = (classes: IClassname) =>
 
 const Cards: React.FC<Props> = ({ partnerData }) => {
   const [active, setActive] = useState<number[]>([]);
-  console.log(partnerData);
   const { setPartnerSelect } = useProgressStore();
   const { setPartner } = useUserSelect();
 
@@ -53,21 +52,19 @@ const Cards: React.FC<Props> = ({ partnerData }) => {
 
 const sendDataToApi = async (activePartnerIds: number[]) => {
   try {
-    // 로컬 스토리지에서 토큰 가져오기
     const token = localStorage.getItem('access_token');
     
-    // 토큰이 없는 경우 에러 처리
     if (!token) {
       throw new Error('No access token found');
     }
 
-    const data = { activePartners: activePartnerIds };
-    const response = await axios.post('http://3.37.87.24:3000/swagger/tourgenai#/user-user/user-type', data, {
-      headers: {
-        'Authorization': `Bearer ${token}`, // 헤더에 토큰 추가
+    const data = { type: activePartnerIds };
+    const response = await axios.post('http://3.37.87.24:3000/user-user/user-type', data, {
+    headers: {
+    'Authorization': `Bearer ${token}`,
       },
     });
-    console.log('Data successfully sent to API:', response.data);
+    console.log('API:', response.data);
   } catch (error) {
     console.error('오류!:', error);
   }

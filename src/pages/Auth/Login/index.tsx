@@ -2,20 +2,15 @@ import styles from './Login.module.scss';
 import { ReactComponent as Kakao } from 'assets/svg/auth/kakao.svg';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 export default function Login(): JSX.Element {
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Current URL:', window.location.href);
     const urlParams = new URLSearchParams(location.search);
     const accessToken = urlParams.get('access_token');
     const refreshToken = urlParams.get('refresh_token');
-    console.log('Access Token:', accessToken);
-    console.log('Refresh Token:', refreshToken);
-
 
     if (accessToken) {
       localStorage.setItem('access_token', accessToken);
