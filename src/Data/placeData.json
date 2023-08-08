@@ -4,8 +4,8 @@
         "name": "수도권",
         "attractions": [
             {
-                "name": "수도권이 없으니..",
-                "image": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA4MjhfMjgw%2FMDAxNjYxNjkwODQ2MjUw._srUHCQoudPdt4P0aPFb5Qj7XAFhdj_b_wpcRVpI04sg.V9mcgkC-6GR5FbbNoOWR1Wu4QEPPC-knZeMXaJHRERQg.JPEG.jjnjju%2FIMG_6895.jpg&type=sc960_832",
+                "name": "인천광역시",
+                "image": "https://images.unsplash.com/photo-1446733993804-c62a351c7239?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5jaGVvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
                 "local": "수도권"
             }
         ]

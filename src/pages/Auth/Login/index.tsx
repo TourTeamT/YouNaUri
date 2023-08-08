@@ -1,28 +1,30 @@
 import styles from './Login.module.scss';
 import { ReactComponent as Kakao } from 'assets/svg/auth/kakao.svg';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Login(): JSX.Element {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    console.log('Current URL:', window.location.href);
     const urlParams = new URLSearchParams(location.search);
-    const code = urlParams.get('code');
+    const accessToken = urlParams.get('access_token');
+    const refreshToken = urlParams.get('refresh_token');
+    console.log('Access Token:', accessToken);
+    console.log('Refresh Token:', refreshToken);
 
-    if (code) {
-      axios.get('http://localhost:3000', { params: { code: code } })
-        .then(function (response) {
-          console.log(response);
-          console.log("나와라쫌");
-          localStorage.setItem('access_token', response.data.access_token);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-        }
-  }, [location]);
+
+    if (accessToken) {
+      localStorage.setItem('access_token', accessToken);
+      if (refreshToken) {
+        localStorage.setItem('refresh_token', refreshToken);
+      }
+      navigate('/user-select/partner');
+    }
+  }, [location, navigate]);
 
   return (
     <div className={styles.body}>
