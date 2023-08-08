@@ -15,12 +15,7 @@
   flex-direction: column;
   border: solid 1.5px gainsboro;
   margin: 10px;
-
-  &__active {
-    border: solid 1.5px #ff7f23;
-    cursor: pointer;
-    box-shadow: 1px 1px 6px grey;
-  }
+  cursor: pointer;
 
   &__active {
     border: solid 1.5px #ff7f23;
@@ -29,12 +24,10 @@
   }
 
   &__image {
-    background-color: gainsboro;
-    width: 210px;
-    height: 260px;
+    background-color: white;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 60px auto 80px auto;
   }
 
   &__title {
