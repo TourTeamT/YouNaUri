@@ -27,26 +27,20 @@ export default function PlaceInfoModal (props: Props) {
     mapX,
     mapY,
   } = props;
-  const [info, setInfo] = React.useState<any>();
+  const [info, setInfo] = React.useState<any[]>([]);
   const { selectedPlace, setAddSelectedPlace } = useSelectedPlace();
   const onClickAdd = () => {
     setAddSelectedPlace({ 
-      image: firstImage, 
+      latitude: mapY,
+      longitude: mapX,
+      img: firstImage, 
       title: title,
       address: address,
+      hour: 2,
+      min: 0,
+      category_name: '관광코스',
       contentId: contentId,
-      mapX: mapX,
-      mapY: mapY,
-      parking: info?.parking.length > 0 ? true : false,
-      wheelChair:info?.wheelchair.length > 0 ? true : false,
-      dotBlock:info?.braileblock.length > 0 ? true : false,
-      audioGuide: info?.audioguide?.length > 0 ? true : false,
-      helpDog: info?.helpdog.length > 0 ? true : false,
-      signGuide:info?.signguide.length > 0 ? true : false,
-      videoGuide: info?.videoguide.length > 0 ? true : false,
-      babySpareChair: info?.babysparechair.length > 0 ? true : false,
-      lactationRoom: info?.lactationroom.length > 0 ? true : false,
-      stroller: info?.stroller.length > 0 ? true : false,
+      filter: info
     });
   }
 
@@ -56,7 +50,38 @@ export default function PlaceInfoModal (props: Props) {
       const infoData = await api.plan.getDetailCommon(contentId);
       console.log(data.response.body.items.item[0]);
       console.log(infoData);
-      setInfo(data.response.body.items.item[0]);
+      const filterData =data.response.body.items.item[0];
+      if (filterData?.parking.length > 0) {
+        setInfo(() => [...info, '전용주차구역'])
+      }
+      if (filterData?.wheelchair.length > 0) {
+        setInfo(() => [...info, '휠체어대여'])
+      }
+      if (filterData?.braileblock.length > 0) {
+        setInfo(() => [...info, '점자블록'])
+      }
+      if (filterData?.audioguide.length > 0) {
+        setInfo(() => [...info, '오디오가이드'])
+      }
+      if (filterData?.helpdog.length > 0) {
+        setInfo(() => [...info, '보조견동반'])
+      }
+      if (filterData?.signguide.length > 0) {
+        setInfo(() => [...info, '수어안내'])
+      }
+      if (filterData?.videoguide.length > 0) {
+        setInfo(() => [...info, '자막해설'])
+      }
+      if (filterData?.babysparechair.length > 0) {
+        setInfo(() => [...info, '유아용의자'])
+      }
+      if (filterData?.lactationroom.length > 0) {
+        setInfo(() => [...info, '수유실'])
+      }
+      if (filterData?.stroller.length > 0) {
+        setInfo(() => [...info, '유모차대여'])
+      }
+      
       console.log(info);
     }
     getContentData();

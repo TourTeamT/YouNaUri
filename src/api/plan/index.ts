@@ -1,6 +1,7 @@
-import { instance, localPopup, location } from "../../api/entity";
+import { instance, localPopup, location, server } from "../../api/entity";
 
 export const key = process.env.REACT_APP_TOUR_API_KEY;
+
 
 export const getAddress =  async (address: string) => {
   const response = await instance.get(`v2/local/search/address.json`, {
@@ -11,7 +12,7 @@ export const getAddress =  async (address: string) => {
   return response.data;
 }
 
-export const getLocation = async () => {
+export const getLocation = async (mapX: string, mapY: string) => {
   const response = await location.get(`KorWithService1/locationBasedList1`, {
     params: {
       numOfRows: 10,
@@ -19,9 +20,9 @@ export const getLocation = async () => {
       MobileOS: 'WEB',
       MobileApp: 'test',
       serviceKey: key,
-      mapX: 126.981611,
-      mapY: 37.568477,
-      radius: 1000,
+      mapX: mapX,
+      mapY: mapY,
+      radius: 10000,
       listYN: 'Y',
       arrange: 'A',
       contentTypeId: 12,
@@ -71,5 +72,10 @@ export const getDetailCommon = async (contentId: any) => {
       _type: 'json',
     }
   })
+  return response.data;
+}
+
+export const getServerRoute = async (params: any) => {
+  const response = await server.post(`map-navi/recommended/route`, params)
   return response.data;
 }

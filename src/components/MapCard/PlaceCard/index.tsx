@@ -15,26 +15,26 @@ import {ReactComponent as WheelChair} from 'assets/svg/SelectPlace/wheelChair.sv
 import styles from './PlaceCard.module.scss';
 
 type PlaceCardProps = {
-  image: string | undefined,
+  img: string | undefined,
   title: string | undefined,
   address: string | undefined,
   contentId: string | undefined,
-  parking: boolean;
-  wheelChair: boolean;
-  dotBlock: boolean;
-  audioGuide: boolean;
-  helpDog: boolean;
-  signGuide: boolean;
-  videoGuide: boolean;
-  babySpareChair: boolean;
-  lactationRoom: boolean;
-  stroller: boolean;
+  parking: boolean,
+  wheelChair: boolean,
+  dotBlock: boolean,
+  audioGuide: boolean,
+  helpDog: boolean,
+  signGuide: boolean,
+  videoGuide: boolean,
+  babySpareChair: boolean,
+  lactationRoom: boolean,
+  stroller: boolean,
   index: number,
 }
 
 export default function PlaceCard(props: PlaceCardProps) {
   const { 
-    image, 
+    img, 
     title, 
     address, 
     contentId,
@@ -54,7 +54,7 @@ export default function PlaceCard(props: PlaceCardProps) {
 
   return (
     <div className={styles.card}>
-      <img className={styles.card__image} src={image} alt='썸네일' />
+      <img className={styles.card__image} src={img} alt='썸네일' />
       <div className={styles.card__info}>
         <div className={styles.title}>{title}</div>
         <div className={styles.address}>{address}</div>
