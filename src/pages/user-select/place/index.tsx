@@ -1,5 +1,5 @@
 import styles from './place.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import placesData from 'Data/placeData.json';
 import useProgressStore from 'utils/progressStore';
 import Cards from "./Card";
@@ -16,6 +16,7 @@ export default function Place() {
 
   const onClickNext = () => {
     setPlanStep(true);
+    setPlaceSelect(true);
   }
 
   const [places, setPlaces] = useState<{ region: string; name: string; image: string; local: string }[]>([]);

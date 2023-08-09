@@ -39,6 +39,7 @@ export default function Plan() {
   }
   const onClickNext = () => {
     setTimeStep(true);
+    setPlanSelect(true);
   }
   React.useEffect(() => {
     const fetchData = async () => {
