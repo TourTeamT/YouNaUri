@@ -15,6 +15,8 @@ const formatDateToMMDD = (date: Date): string => {
   return `${month < 10 ? "0" : ""}${month}.${day < 10 ? "0" : ""}${day}`;
 };
 
+
+
 const TimeInput: React.FC<{
   hours: string;
   minutes: string;
@@ -65,16 +67,53 @@ export default function Time() {
     ? userSelectDataArray[0]
     : userSelectDataArray;
   const { setTimeSelect, setTimeStep } = useProgressStore();
-  const {startDate, endDate} = useUserSelect();
+  const {startDate, endDate, setTime, time} = useUserSelect();
   const [formState, setFormState] = React.useState<any[]>([]);
   const [selectedDayIndex, setSelectedDayIndex] = React.useState<number | null>(0); // Keep track of the selected day index
   const onClickPrev = () => {
     setTimeSelect(false);
     setTimeStep(false);
   }
+  const calculateRemainingTime = (index: number) => {
+    const startTime = formState[index]?.startTime;
+    const endTime = formState[index]?.endTime;
+    const mealTime = formState[index]?.mealTime || "00:00";
+    const mealStatusCount = [
+      formState[index]?.isBreakfast,
+      formState[index]?.isLunch,
+      formState[index]?.isDinner,
+    ].filter(Boolean).length;
+  
+    if (startTime && endTime) {
+      const [startHour, startMinute] = startTime.split(":").map(Number);
+      const [endHour, endMinute] = endTime.split(":").map(Number);
+      const [mealHour, mealMinute] = mealTime.split(":").map(Number);
+  
+      let remainingMinutes =
+        (endHour - startHour) * 60 + (endMinute - startMinute) - mealStatusCount * (mealHour * 60 + mealMinute);
+  
+      const remainingHours = Math.floor(remainingMinutes / 60);
+      remainingMinutes = remainingMinutes % 60;
+  
+      return {
+        hour: remainingHours,
+        minute: String(remainingMinutes).padStart(2, "0"),
+      };
+    }
+  
+    return {
+      hour: 0,
+      minute: "00",
+    };
+  };
+  
 
   const onClickNext = () => {
     setTimeSelect(true);
+    for (let i = 0; i < formState.length; i++ ) {
+      setTime(calculateRemainingTime(i));
+    }
+    console.log(time);
   }
   const getDatesBetween = (): string[] => {
     if (startDate && endDate) {

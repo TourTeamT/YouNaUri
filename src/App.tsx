@@ -8,6 +8,7 @@ import Partner from 'pages/user-select/partner';
 import Time from 'pages/user-select/time';
 import Login from 'pages/Auth/Login';
 import Map from 'pages/Map';
+import SelectMap from 'pages/SelectMap';
 import Header from 'pages/Header';
 import './App.css';
 import Intend from 'pages/MyPage/Intend';
@@ -31,6 +32,7 @@ function App() {
               <Route path='intend' element={<Intend />} />
             </Route>
             <Route path='/map' element={<Map />} />
+            <Route path='/select-map' element={<SelectMap />} />
           </Route >
         </Routes>
         </div>
